@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Rock_Spawner.gd" type="Script" id=1]
+
+[node name="Rock_Spawner" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Spawn_Rate" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="Spawn_Rate" to="." method="_on_Spawn_Rate_timeout"]

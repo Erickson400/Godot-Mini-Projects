@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Meshes.tres" type="MeshLibrary" id=1]
+[ext_resource path="res://Scripts/SandBox.gd" type="Script" id=2]
+
+[node name="SandBox" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="MainGrid" type="GridMap" parent="."]
+mesh_library = ExtResource( 1 )
+data = {
+"cells": PoolIntArray(  )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="OutGrid" type="GridMap" parent="."]
+mesh_library = ExtResource( 1 )
+data = {
+"cells": PoolIntArray(  )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 1, 0 )
+}
+
+[node name="Iterate" type="Timer" parent="."]
+wait_time = 0.01
+autostart = true
+
+[node name="Spawner" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+[connection signal="timeout" from="Iterate" to="." method="_on_Iterate_timeout"]
+[connection signal="timeout" from="Spawner" to="." method="_on_Spawner_timeout"]

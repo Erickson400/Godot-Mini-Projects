@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Booster.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 1, 0.270588, 0.270588, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+size = Vector3( 2, 0.1, 3 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1, 0.5, 2 )
+
+[node name="Booster" type="Area"]
+script = ExtResource( 1 )
+
+[node name="mesh" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 3 )
+[connection signal="body_entered" from="." to="." method="_on_Booster_body_entered"]

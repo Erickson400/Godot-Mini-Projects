@@ -1,0 +1,254 @@
+[gd_scene load_steps=46 format=2]
+
+[ext_resource path="res://Assets/Meshes/Player/RaceShip.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Materials/Blue.tres" type="Material" id=3]
+[ext_resource path="res://Scripts/Player/StateMachine.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Player/States/Player_State_Drift.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Player/States/Player_State_Driving.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Animations/Player/Shift_Right.tres" type="Animation" id=7]
+[ext_resource path="res://Scripts/Player/States/Player_State_Shift.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Animations/Player/Steer_Left.tres" type="Animation" id=9]
+[ext_resource path="res://Assets/Animations/Player/Steer_Right.tres" type="Animation" id=10]
+[ext_resource path="res://Assets/Animations/Player/Shift_Left.tres" type="Animation" id=11]
+[ext_resource path="res://Assets/Animations/Player/Drift_Right.tres" type="Animation" id=12]
+[ext_resource path="res://Assets/Animations/Player/idle.tres" type="Animation" id=13]
+[ext_resource path="res://Assets/Animations/Player/Drift_Left.tres" type="Animation" id=14]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.479798, 0.944444 )
+colors = PoolColorArray( 1, 0.931641, 0, 1, 0.974907, 1, 0.0117188, 1, 1, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0.318182 ), 0.0, 0.0, 0, 0, Vector2( 0.447964, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3( 0, 0, 1 )
+spread = 30.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 2.0
+angle = 180.0
+angle_random = 1.0
+scale = 0.1
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id=7]
+material = SubResource( 6 )
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0, 0.375479, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.0363159, 0.280597, 0.929688, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.19802, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+direction = Vector3( 1, 0, 1 )
+spread = 30.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+scale_curve = SubResource( 11 )
+color_ramp = SubResource( 9 )
+
+[sub_resource type="SpatialMaterial" id=13]
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+
+[sub_resource type="SphereMesh" id=14]
+material = SubResource( 13 )
+radius = 0.1
+height = 0.2
+
+[sub_resource type="GradientTexture" id=15]
+gradient = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=16]
+direction = Vector3( -1, 0, 1 )
+spread = 30.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+scale_curve = SubResource( 11 )
+color_ramp = SubResource( 15 )
+
+[sub_resource type="SphereShape" id=17]
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "Steer_Right"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "Shift_Left"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "Shift_Right"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "Drift_Left"
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "Drift_Right"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "Steer_Left"
+
+[sub_resource type="AnimationNodeBlend3" id=27]
+
+[sub_resource type="AnimationNodeBlend3" id=28]
+
+[sub_resource type="AnimationNodeBlend3" id=29]
+
+[sub_resource type="AnimationNodeTransition" id=30]
+input_count = 3
+xfade_time = 0.1
+input_0/name = "Steer"
+input_0/auto_advance = false
+input_1/name = "Shift"
+input_1/auto_advance = false
+input_2/name = "Drift"
+input_2/auto_advance = false
+
+[sub_resource type="AnimationNodeBlendTree" id=31]
+graph_offset = Vector2( -229.038, 285.072 )
+nodes/Animation/node = SubResource( 26 )
+nodes/Animation/position = Vector2( -200, 100 )
+"nodes/Animation 2/node" = SubResource( 18 )
+"nodes/Animation 2/position" = Vector2( -200, 200 )
+"nodes/Animation 3/node" = SubResource( 19 )
+"nodes/Animation 3/position" = Vector2( -200, 300 )
+"nodes/Animation 4/node" = SubResource( 20 )
+"nodes/Animation 4/position" = Vector2( -160, 420 )
+"nodes/Animation 5/node" = SubResource( 21 )
+"nodes/Animation 5/position" = Vector2( -160, 520 )
+"nodes/Animation 6/node" = SubResource( 22 )
+"nodes/Animation 6/position" = Vector2( -160, 640 )
+"nodes/Animation 7/node" = SubResource( 23 )
+"nodes/Animation 7/position" = Vector2( -200, 880 )
+"nodes/Animation 8/node" = SubResource( 24 )
+"nodes/Animation 8/position" = Vector2( -200, 1120 )
+"nodes/Animation 9/node" = SubResource( 25 )
+"nodes/Animation 9/position" = Vector2( -200, 1000 )
+nodes/Drift_Blend/node = SubResource( 27 )
+nodes/Drift_Blend/position = Vector2( 40, 940 )
+nodes/Shift_Blend/node = SubResource( 28 )
+nodes/Shift_Blend/position = Vector2( 60, 480 )
+nodes/Steer_Blend/node = SubResource( 29 )
+nodes/Steer_Blend/position = Vector2( 60, 140 )
+nodes/Transition/node = SubResource( 30 )
+nodes/Transition/position = Vector2( 340, 320 )
+nodes/output/position = Vector2( 660, 320 )
+node_connections = [ "output", 0, "Transition", "Drift_Blend", 0, "Animation 7", "Drift_Blend", 1, "Animation 9", "Drift_Blend", 2, "Animation 8", "Transition", 0, "Steer_Blend", "Transition", 1, "Shift_Blend", "Transition", 2, "Drift_Blend", "Shift_Blend", 0, "Animation 4", "Shift_Blend", 1, "Animation 5", "Shift_Blend", 2, "Animation 6", "Steer_Blend", 0, "Animation", "Steer_Blend", 1, "Animation 2", "Steer_Blend", 2, "Animation 3" ]
+
+[node name="Player" type="KinematicBody"]
+script = ExtResource( 2 )
+
+[node name="Rotation_Pivot" type="Spatial" parent="."]
+
+[node name="Mesh_Pivot" type="Spatial" parent="Rotation_Pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0157421, 0 )
+
+[node name="Mesh" type="MeshInstance" parent="Rotation_Pivot/Mesh_Pivot"]
+transform = Transform( -1, 4.09782e-08, 3.57628e-07, 0, 1, -1.49012e-08, -2.98023e-07, -4.47035e-08, -1, -1.49012e-08, -0.133315, 3.92406e-09 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 3 )
+
+[node name="Thruster" type="Particles" parent="Rotation_Pivot/Mesh_Pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0292556, 1.0279 )
+amount = 300
+lifetime = 0.6
+preprocess = 1.0
+speed_scale = 0.5
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 7 )
+
+[node name="Right_Smoke" type="Particles" parent="Rotation_Pivot/Mesh_Pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.939432, -0.0281307, 0.58304 )
+emitting = false
+amount = 40
+lifetime = 0.8
+speed_scale = 2.67
+visibility_aabb = AABB( -4.01123, -4, -4, 8, 8, 8 )
+process_material = SubResource( 12 )
+draw_pass_1 = SubResource( 14 )
+
+[node name="Left_Smoke" type="Particles" parent="Rotation_Pivot/Mesh_Pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95697, -0.0281307, 0.58304 )
+emitting = false
+amount = 40
+lifetime = 0.8
+speed_scale = 2.67
+visibility_aabb = AABB( -4.01123, -4, -4, 8, 8, 8 )
+process_material = SubResource( 16 )
+draw_pass_1 = SubResource( 14 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.924699, 0.380699, 0, -0.380699, 0.924699, 0, 2.5667, 4.08272 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 17 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Driving" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )
+
+[node name="Shift" type="Node" parent="StateMachine"]
+script = ExtResource( 8 )
+
+[node name="Drift" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )
+
+[node name="Anim_States_Player" type="AnimationPlayer" parent="."]
+anims/Drift_Left = ExtResource( 14 )
+anims/Drift_Right = ExtResource( 12 )
+anims/Shift_Left = ExtResource( 11 )
+anims/Shift_Right = ExtResource( 7 )
+anims/Steer_Left = ExtResource( 9 )
+anims/Steer_Right = ExtResource( 10 )
+anims/idle = ExtResource( 13 )
+
+[node name="Anim_States_Tree" type="AnimationTree" parent="."]
+tree_root = SubResource( 31 )
+anim_player = NodePath("../Anim_States_Player")
+active = true
+parameters/Drift_Blend/blend_amount = 0.0
+parameters/Shift_Blend/blend_amount = 0.0
+parameters/Steer_Blend/blend_amount = 0.0
+parameters/Transition/current = 0
+
+[node name="Timer_Boost" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+[connection signal="timeout" from="Timer_Boost" to="." method="_on_Timer_Boost_timeout"]
