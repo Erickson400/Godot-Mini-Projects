@@ -1,0 +1,29 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="Math Training"
+run/main_scene="res://Scenes/Game.tscn"
+config/icon="res://Misc/icon.png"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[rendering]
+
+environment/default_clear_color=Color( 0.0156863, 0, 0, 1 )
+environment/default_environment="res://Misc/default_env.tres"
