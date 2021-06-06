@@ -1,6 +1,7 @@
 extends Node
 
-var max_range = 10
+var min_range = 0#100_000
+var max_range = 10_000_000
 
 var Top_num = 0
 var Bottom_num = 0
@@ -17,7 +18,7 @@ func _unhandled_input(event):
 			if event.scancode == KEY_ENTER:
 				Result = textb.to_int()
 				
-				if Result == Top_num + Bottom_num:
+				if Result == Top_num - Bottom_num:
 					correct()
 				else:
 					wrong()
@@ -40,24 +41,43 @@ func _ready():
 
 
 func _process(_delta):
-	if textb.length() > 3:
+	if textb.length() > 9:
 		textb.erase(textb.length()-1, 1)
-	$TextBox.text = textb
+	
+	var num = textb.to_int()
+	var string = comma_sep(num)
+	$TextBox.text = string
 
 
 
 
 func generate():
 	randomize()
-	Top_num = round(rand_range(1, max_range))
-	Bottom_num = round(rand_range(1, max_range))
-	$Top.text = String(Top_num)
-	$Bottom.text = String(Bottom_num)
+	Top_num = round(rand_range(min_range, max_range))
+	Bottom_num = round(rand_range(min_range, Top_num))
+	#Top_num = round(rand_range(10, 20))
+	#Bottom_num = round(rand_range(0, 10))
+	
+	
+	$Top.text = comma_sep(Top_num)
+	$Bottom.text = comma_sep(Bottom_num)
 
 
 
 
+func comma_sep(number):
+	var string = str(number)
+	var mod = string.length() % 3
+	var res = ""
 
+	for i in range(0, string.length()):
+		if i != 0 && i % 3 == mod:
+			res += ","
+		res += string[i]
+
+	return res
+	
+	
 
 func correct():
 	$Flash.start()
