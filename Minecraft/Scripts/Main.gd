@@ -8,12 +8,12 @@ func _ready():
 	randomize()
 	noise.seed = randi()
 	noise.octaves = 4 #4
-	noise.period = 200 #20.0
+	noise.period = 20 #20.0
 	noise.persistence = 0.8 #0.8
-	
+
 	var thread = Thread.new()
 	thread.start(self, "Load_Chunks", null)
-	
+
 	
 func _process(_delta):
 	$Water.translation.x = $Player.translation.x
