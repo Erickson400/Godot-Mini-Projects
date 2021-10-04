@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Ps1Shader/Player.gd" type="Script" id=1]
+[ext_resource path="res://Ps1Shader/checkers.png" type="Texture" id=2]
+[ext_resource path="res://Ps1Shader/Snappy.gdshader" type="Shader" id=3]
+[ext_resource path="res://Ps1Shader/BigSmoka/BigSmokeFixed.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Ps1Shader/characterSprite.png" type="Texture" id=5]
+
+[sub_resource type="PlaneMesh" id=1]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 3 )
+shader_param/snapRes = 25.0
+shader_param/roughness = 1.0
+shader_param/specular = 0.1
+shader_param/uv_scale = Vector2( 20, 20 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/light_intensity = 0.3
+shader_param/transparent = false
+shader_param/albedoTex = ExtResource( 2 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 3 )
+shader_param/snapRes = 15.0
+shader_param/roughness = 1.0
+shader_param/specular = 0.1
+shader_param/uv_scale = Vector2( 20, 5 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/light_intensity = 0.3
+shader_param/transparent = false
+shader_param/albedoTex = ExtResource( 2 )
+
+[node name="Ps1" type="Spatial"]
+
+[node name="Floor" type="MeshInstance" parent="."]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Wall" type="MeshInstance" parent="."]
+transform = Transform( 7.70658, 0, -5.57101e-08, 0, 0, -2, -6.37249, 0, -6.73731e-08, -0.0356229, 1.06137, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 0.725573, 0 )
+
+[node name="Player" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44782, 7.55739 )
+script = ExtResource( 1 )
+fullscreen = true
+
+[node name="BigSmokeFixed" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61156, 0, 1.20336 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03832, 0.931989, 1.24676 )
+pixel_size = 0.0067
+billboard = 2
+texture = ExtResource( 5 )

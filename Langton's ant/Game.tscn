@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game.gd" type="Script" id=2]
+[ext_resource path="res://Playground.gd" type="Script" id=3]
+
+[node name="Game" type="Node"]
+script = ExtResource( 2 )
+
+[node name="GridMap" type="GridMap" parent="."]
+data = {
+"cells": PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 6, 0, 1, 65529, 0, 0, 65534, 0, 0, 65535, 0, 0, 2, 1, 0, 3, 1, 0, 6, 1, 1, 65530, 1, 0, 65534, 1, 0, 65535, 1, 0, 3, 2, 0, 7, 2, 1, 65531, 2, 0, 65534, 2, 0, 65535, 2, 0, 0, 3, 0, 1, 3, 0, 2, 3, 1, 3, 3, 1, 6, 3, 1, 65532, 3, 0, 65533, 3, 0, 65534, 3, 0, 2, 4, 1, 3, 4, 0, 4, 4, 1, 5, 4, 1, 6, 4, 1, 2, 5, 1, 0, 6, 1, 1, 6, 1, 2, 6, 1, 65535, 6, 1, 1, 12, 1, 5, 65532, 1, 6, 65532, 1, 65530, 65532, 0, 65531, 65532, 0, 65532, 65532, 0, 6, 65533, 1, 65529, 65533, 0, 65533, 65533, 0, 65534, 65533, 0, 0, 65534, 0, 2, 65534, 0, 6, 65534, 1, 65528, 65534, 0, 65533, 65534, 0, 65534, 65534, 0, 0, 65535, 0, 1, 65535, 0, 2, 65535, 0, 65528, 65535, 0, 65532, 65535, 0, 65533, 65535, 0, 65535, 65535, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.8061, 39.5299 )
+SPEED = 30
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="fps" type="Label" parent="."]
+margin_right = 96.0
+margin_bottom = 49.0
+rect_scale = Vector2( 5, 5 )
+custom_colors/font_color = Color( 1, 0.0235294, 0.0235294, 1 )
+text = "FPS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Playground" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Shaders/Cube_Shader.gdshader" type="Shader" id=3]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 4, 4 )
+subdivide_width = 200
+subdivide_depth = 200
+
+[sub_resource type="OpenSimplexNoise" id=2]
+seed = 4
+octaves = 7
+period = 101.1
+persistence = 0.424
+
+[sub_resource type="NoiseTexture" id=3]
+flags = 5
+noise = SubResource( 2 )
+
+[sub_resource type="OpenSimplexNoise" id=4]
+period = 86.6
+persistence = 0.712
+
+[sub_resource type="NoiseTexture" id=5]
+as_normalmap = true
+noise = SubResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 3 )
+shader_param/height_scale = 0.5
+shader_param/noise = SubResource( 3 )
+shader_param/normalmap = SubResource( 5 )
+
+[sub_resource type="PlaneMesh" id=7]
+
+[sub_resource type="SpatialMaterial" id=8]
+vertex_color_use_as_albedo = true
+albedo_color = Color( 0.678431, 0.572549, 0, 1 )
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 5, 5, 1 )
+
+[node name="Main" type="Spatial"]
+
+[node name="Mesh" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 6 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.540662, 0 )
+
+[node name="floor" type="MeshInstance" parent="."]
+transform = Transform( 2.43083, 0, 0, 0, 1, 0, 0, 0, 2.43083, 0, 0, 0 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )

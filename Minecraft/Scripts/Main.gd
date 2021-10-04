@@ -8,7 +8,7 @@ func _ready():
 	randomize()
 	noise.seed = randi()
 	noise.octaves = 4 #4
-	noise.period = 20 #20.0
+	noise.period = 50 #20.0
 	noise.persistence = 0.8 #0.8
 
 	var thread = Thread.new()

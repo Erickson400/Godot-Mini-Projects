@@ -66,8 +66,8 @@ __meta__ = {
 position = Vector2( 36.1807, 33.9627 )
 scale = Vector2( 7, 7 )
 texture = ExtResource( 4 )
-vframes = 2
 hframes = 12
+vframes = 2
 frame = 12
 
 [node name="Sperator" type="ColorRect" parent="HUD"]
@@ -110,5 +110,6 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="."]
+
 [connection signal="pressed" from="HUD/Button" to="." method="_on_Button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
