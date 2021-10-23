@@ -16,6 +16,11 @@ func _input(event):
 		rotation_degrees.x = clamp(rotation_degrees.x, -90, 90)
 
 func _process(delta):
+	
+	
+	
+	
+	
 	# Movement
 	var moveDir := Vector3(0,0,0)
 	if Input.is_action_pressed("ui_up"):

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/checkers.png-8a555c602d9db35ac05e7bc98e2a2829.s3tc.stex"
-path.etc2="res://.import/checkers.png-8a555c602d9db35ac05e7bc98e2a2829.etc2.stex"
+path.s3tc="res://.import/checkers.png-f163deb5048db5495dbad384663e7905.s3tc.stex"
+path.etc2="res://.import/checkers.png-f163deb5048db5495dbad384663e7905.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Ps1Shader/checkers.png"
-dest_files=[ "res://.import/checkers.png-8a555c602d9db35ac05e7bc98e2a2829.s3tc.stex", "res://.import/checkers.png-8a555c602d9db35ac05e7bc98e2a2829.etc2.stex" ]
+source_file="res://Ps1/textures/checkers.png"
+dest_files=[ "res://.import/checkers.png-f163deb5048db5495dbad384663e7905.s3tc.stex", "res://.import/checkers.png-f163deb5048db5495dbad384663e7905.etc2.stex" ]
 
 [params]
 

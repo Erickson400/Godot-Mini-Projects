@@ -1,0 +1,1765 @@
+[gd_scene load_steps=53 format=2]
+
+[ext_resource path="res://Ps1/scripts/main.gd" type="Script" id=1]
+[ext_resource path="res://Ps1/scripts/CarPath.gd" type="Script" id=2]
+[ext_resource path="res://Ps1/scripts/Player.gd" type="Script" id=3]
+[ext_resource path="res://Ps1/scripts/Civ.gd" type="Script" id=4]
+[ext_resource path="res://Ps1/Assets/Zach.gltf" type="PackedScene" id=5]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 0, 1 )
+gravity = Vector3( 0, -2, 0 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_unshaded = true
+params_billboard_mode = 2
+albedo_color = Color( 0, 0.647059, 1, 1 )
+
+[sub_resource type="QuadMesh" id=3]
+material = SubResource( 2 )
+size = Vector2( 0.01, 0.05 )
+
+[sub_resource type="Environment" id=4]
+background_mode = 1
+background_color = Color( 0.0156863, 0.929412, 1, 1 )
+fog_depth_begin = 1.0
+fog_depth_end = 20.0
+
+[sub_resource type="SphereMesh" id=5]
+radius = 11.0
+height = 22.0
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+flags_unshaded = true
+params_cull_mode = 1
+albedo_color = Color( 1, 1, 0.768627, 0.105882 )
+
+[sub_resource type="SphereMesh" id=7]
+radius = 12.5
+height = 25.0
+
+[sub_resource type="SphereMesh" id=8]
+radius = 15.0
+height = 30.0
+
+[sub_resource type="SpatialMaterial" id=9]
+render_priority = 1
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 0, 0, 0, 0.752941 )
+
+[sub_resource type="ImageTexture" id=10]
+size = Vector2( 1, 1 )
+
+[sub_resource type="CubeMesh" id=11]
+size = Vector3( 0.3, 2, 0.3 )
+
+[sub_resource type="SpatialMaterial" id=12]
+flags_unshaded = true
+albedo_color = Color( 0.411765, 0.266667, 0.0156863, 1 )
+
+[sub_resource type="CylinderMesh" id=13]
+top_radius = 0.001
+radial_segments = 4
+
+[sub_resource type="SpatialMaterial" id=14]
+flags_unshaded = true
+albedo_color = Color( 0.00784314, 1, 0, 1 )
+
+[sub_resource type="PlaneMesh" id=15]
+size = Vector2( 3, 15 )
+
+[sub_resource type="SpatialMaterial" id=16]
+flags_unshaded = true
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="PlaneMesh" id=17]
+size = Vector2( 0.05, 2 )
+
+[sub_resource type="SpatialMaterial" id=18]
+flags_unshaded = true
+albedo_color = Color( 0.992157, 1, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=19]
+flags_unshaded = true
+albedo_color = Color( 0.937255, 0.662745, 0.0196078, 1 )
+
+[sub_resource type="PrismMesh" id=20]
+size = Vector3( 1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=21]
+flags_unshaded = true
+albedo_color = Color( 0.945098, 1, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=22]
+flags_unshaded = true
+albedo_color = Color( 0, 0.741176, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=23]
+flags_unshaded = true
+albedo_color = Color( 0, 0.129412, 0.564706, 1 )
+
+[sub_resource type="PlaneMesh" id=24]
+size = Vector2( 200, 200 )
+
+[sub_resource type="SpatialMaterial" id=25]
+flags_unshaded = true
+albedo_color = Color( 0.0509804, 0.647059, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=26]
+flags_unshaded = true
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="PrismMesh" id=27]
+
+[sub_resource type="SpatialMaterial" id=28]
+flags_unshaded = true
+albedo_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+
+[sub_resource type="SpatialMaterial" id=29]
+flags_unshaded = true
+
+[sub_resource type="SpatialMaterial" id=30]
+flags_unshaded = true
+albedo_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+
+[sub_resource type="CubeMesh" id=31]
+size = Vector3( 1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=32]
+flags_unshaded = true
+albedo_color = Color( 0.690196, 0.929412, 1, 1 )
+
+[sub_resource type="Curve3D" id=33]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0463438, 0, -7.26105, 0, 0, 0, 0, 0, 0, 0.00709724, 0, 8.60273 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="SpatialMaterial" id=34]
+flags_unshaded = true
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="PrismMesh" id=35]
+left_to_right = 1.0
+size = Vector3( 1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=36]
+flags_unshaded = true
+albedo_color = Color( 0.866667, 0.866667, 0.866667, 1 )
+
+[sub_resource type="SpatialMaterial" id=37]
+flags_unshaded = true
+albedo_color = Color( 0.278431, 0.278431, 0.278431, 1 )
+
+[sub_resource type="SpatialMaterial" id=38]
+render_priority = 2
+flags_transparent = true
+flags_unshaded = true
+
+[sub_resource type="CylinderMesh" id=39]
+top_radius = 0.001
+
+[sub_resource type="SpatialMaterial" id=40]
+render_priority = 2
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 1, 1, 1, 0.270588 )
+distance_fade_mode = 3
+distance_fade_min_distance = 0.0
+distance_fade_max_distance = 10.0
+
+[sub_resource type="CylinderMesh" id=41]
+top_radius = 0.001
+
+[sub_resource type="SpatialMaterial" id=42]
+render_priority = 2
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 1, 1, 1, 0.054902 )
+
+[sub_resource type="CubeMesh" id=43]
+size = Vector3( 1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=44]
+flags_unshaded = true
+albedo_color = Color( 0.313726, 0.313726, 0.313726, 1 )
+
+[sub_resource type="CylinderMesh" id=45]
+top_radius = 0.001
+radial_segments = 5
+rings = 1
+
+[sub_resource type="CubeMesh" id=46]
+size = Vector3( 0.1, 0.1, 0.1 )
+
+[sub_resource type="SpatialMaterial" id=47]
+render_priority = 2
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 0.992157, 1, 0, 1 )
+
+[node name="Ps1" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Zach" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.654043, 0, 0, 0, 0.654043, 0, 0, 0, 0.654043, 0.614429, -0.323549, 3.92975 )
+
+[node name="RainParent" type="Spatial" parent="."]
+transform = Transform( -0.662306, 0, 0.749235, 0, 1, 0, -0.749235, 0, -0.662306, 3.40939, 1.15201, 0.857621 )
+
+[node name="Rain" type="Particles" parent="RainParent"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0.955037, 0 )
+amount = 200
+lifetime = 2.0
+preprocess = 1.0
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 3 )
+
+[node name="Player" type="Camera" parent="."]
+transform = Transform( 0.41091, 0, 0.911676, 0, 1, 0, -0.911676, 0, 0.41091, 3.40939, 1.15201, 0.857621 )
+environment = SubResource( 4 )
+current = true
+fov = 60.0
+far = 30.0
+script = ExtResource( 3 )
+fullscreen = true
+
+[node name="Fogs" type="Spatial" parent="Player"]
+
+[node name="Fog1" type="MeshInstance" parent="Player/Fogs"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="Fog2" type="MeshInstance" parent="Player/Fogs"]
+mesh = SubResource( 7 )
+material/0 = SubResource( 6 )
+
+[node name="Fog3" type="MeshInstance" parent="Player/Fogs"]
+mesh = SubResource( 8 )
+material/0 = SubResource( 6 )
+
+[node name="NightShade" type="Sprite3D" parent="Player"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 4.76837e-07, 0, 1, -5.96046e-08, 0, -0.0600002 )
+layers = 4
+material_override = SubResource( 9 )
+texture = SubResource( 10 )
+
+[node name="RemoteTransform" type="RemoteTransform" parent="Player"]
+remote_path = NodePath("../../RainParent")
+update_rotation = false
+update_scale = false
+
+[node name="Tree" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51793, 0.648992, 0 )
+
+[node name="Bottom" type="MeshInstance" parent="Tree"]
+transform = Transform( 1, 0, 0, 0, 0.52377, 0, 0, 0, 1, 0, -0.472199, 0 )
+mesh = SubResource( 11 )
+material/0 = SubResource( 12 )
+
+[node name="Top" type="MeshInstance" parent="Tree"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05267, 0 )
+cast_shadow = 0
+mesh = SubResource( 13 )
+material/0 = SubResource( 14 )
+
+[node name="road" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.264408, 0 )
+mesh = SubResource( 15 )
+material/0 = SubResource( 16 )
+
+[node name="Line" type="MeshInstance" parent="road"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0363277, 2.31344 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 18 )
+
+[node name="Line2" type="MeshInstance" parent="road"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0363277, -0.8244 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 18 )
+
+[node name="Line3" type="MeshInstance" parent="road"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0363277, -4.30075 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 18 )
+
+[node name="Line4" type="MeshInstance" parent="road"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0363277, 5.3979 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 18 )
+
+[node name="Civ" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91726, 0.425561, 6.57076 )
+script = ExtResource( 4 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="Civ"]
+
+[node name="Head" type="CSGSphere" parent="Civ/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0396473, 0 )
+radius = 0.147509
+radial_segments = 6
+rings = 3
+smooth_faces = false
+material = SubResource( 19 )
+
+[node name="Body" type="CSGMesh" parent="Civ/CSGCombiner"]
+transform = Transform( 0.334177, 0, 0, 0, -0.604148, 5.28163e-08, 0, -2.21818e-08, -0.25373, 0, -0.39379, 0 )
+mesh = SubResource( 20 )
+material = SubResource( 21 )
+
+[node name="RightArm" type="CSGBox" parent="Civ/CSGCombiner"]
+transform = Transform( 0.782506, 0, 0, 0, 0.322346, 0, 0, 0, 0.782506, -0.155663, -0.284795, 0 )
+width = 0.1
+height = 1.02407
+depth = 0.1
+material = SubResource( 19 )
+
+[node name="RightArm2" type="CSGBox" parent="Civ/CSGCombiner"]
+transform = Transform( 0.782506, 0, 0, 0, 0.322346, 0, 0, 0, 0.782506, 0.156, -0.285, 0 )
+width = 0.1
+height = 1.02407
+depth = 0.1
+material = SubResource( 19 )
+
+[node name="Cap" type="CSGCombiner" parent="Civ/CSGCombiner"]
+transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.00766495, 0.100575, -0.00215936 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Top" type="CSGSphere" parent="Civ/CSGCombiner/Cap"]
+radius = 0.128528
+rings = 14
+material = SubResource( 22 )
+
+[node name="RIM" type="CSGCylinder" parent="Civ/CSGCombiner/Cap"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0093841, 0.0855857 )
+radius = 0.0944277
+height = 0.011221
+sides = 11
+material = SubResource( 23 )
+
+[node name="Remover" type="CSGSphere" parent="Civ/CSGCombiner/Cap"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00336981, 0 )
+operation = 2
+radius = 0.128528
+rings = 14
+
+[node name="Grass" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.329266, 0 )
+mesh = SubResource( 24 )
+material/0 = SubResource( 25 )
+
+[node name="House" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8547, 0.932612, -9.65579 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CSGCombiner" type="CSGCombiner" parent="House"]
+
+[node name="Body" type="CSGBox" parent="House/CSGCombiner"]
+width = 2.27228
+depth = 2.71597
+material = SubResource( 26 )
+
+[node name="Top" type="CSGMesh" parent="House/CSGCombiner"]
+transform = Transform( 1.5408, 0, 0, 0, 1.03792, 0, 0, 0, 1.49132, 0, 1.79996, 0 )
+mesh = SubResource( 27 )
+material = SubResource( 28 )
+
+[node name="Door" type="CSGBox" parent="House/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.507952, 1.35116 )
+width = 0.597504
+height = 0.897083
+depth = 0.204969
+material = SubResource( 29 )
+
+[node name="Building" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7289, -0.179363, -3.05172 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="Building"]
+
+[node name="Base" type="CSGBox" parent="Building/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.39851, 0 )
+height = 7.02628
+material = SubResource( 30 )
+
+[node name="WindowsSize1" type="Spatial" parent="Building/CSGCombiner"]
+
+[node name="window" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window2" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window3" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window4" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window5" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window6" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window7" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window8" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window9" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window10" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window11" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window12" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window13" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window14" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window15" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="WindowsSize2" type="Spatial" parent="Building/CSGCombiner"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+
+[node name="window" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window2" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window3" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window4" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window5" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window6" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window7" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window8" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window9" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window10" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window11" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window12" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window13" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window14" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window15" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="WindowsSize3" type="Spatial" parent="Building/CSGCombiner"]
+transform = Transform( -1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 0, 0, 0 )
+
+[node name="window" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window2" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window3" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window4" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window5" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window6" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window7" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window8" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window9" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window10" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window11" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window12" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window13" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window14" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window15" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="WindowsSize4" type="Spatial" parent="Building/CSGCombiner"]
+transform = Transform( -5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0 )
+
+[node name="window" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window2" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window3" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window4" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window5" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window6" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window7" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window8" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window9" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window10" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window11" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window12" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window13" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window14" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window15" type="MeshInstance" parent="Building/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="Building2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7289, -0.179363, -0.931391 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="Building2"]
+
+[node name="Base" type="CSGBox" parent="Building2/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.39851, 0 )
+height = 7.02628
+material = SubResource( 30 )
+
+[node name="WindowsSize1" type="Spatial" parent="Building2/CSGCombiner"]
+
+[node name="window" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window2" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window3" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window4" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window5" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window6" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window7" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window8" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window9" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window10" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window11" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window12" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window13" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window14" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window15" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="WindowsSize2" type="Spatial" parent="Building2/CSGCombiner"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+
+[node name="window" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window2" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window3" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window4" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window5" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window6" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window7" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window8" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window9" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window10" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window11" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window12" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window13" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window14" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window15" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="WindowsSize3" type="Spatial" parent="Building2/CSGCombiner"]
+transform = Transform( -1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 0, 0, 0 )
+
+[node name="window" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window2" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window3" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window4" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window5" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window6" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window7" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window8" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window9" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window10" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window11" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window12" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window13" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window14" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window15" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="WindowsSize4" type="Spatial" parent="Building2/CSGCombiner"]
+transform = Transform( -5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0 )
+
+[node name="window" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window2" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window3" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window4" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window5" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window6" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window7" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window8" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window9" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window10" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window11" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window12" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window13" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window14" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window15" type="MeshInstance" parent="Building2/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="Building3" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7289, -1.68715, 1.20671 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="Building3"]
+
+[node name="Base" type="CSGBox" parent="Building3/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.39851, 0 )
+height = 7.02628
+material = SubResource( 30 )
+
+[node name="WindowsSize1" type="Spatial" parent="Building3/CSGCombiner"]
+
+[node name="window" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window2" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window3" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window4" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window5" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window6" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window7" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window8" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window9" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window10" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window11" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window12" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window13" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window14" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window15" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="WindowsSize2" type="Spatial" parent="Building3/CSGCombiner"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+
+[node name="window" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window2" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window3" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window4" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window5" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window6" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window7" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window8" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window9" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window10" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window11" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window12" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window13" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window14" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window15" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="WindowsSize3" type="Spatial" parent="Building3/CSGCombiner"]
+transform = Transform( -1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 0, 0, 0 )
+
+[node name="window" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window2" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window3" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window4" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window5" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window6" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window7" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window8" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window9" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window10" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window11" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window12" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window13" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window14" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window15" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="WindowsSize4" type="Spatial" parent="Building3/CSGCombiner"]
+transform = Transform( -5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0 )
+
+[node name="window" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window2" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window3" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window4" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window5" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window6" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window7" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window8" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window9" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window10" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window11" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window12" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window13" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window14" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window15" type="MeshInstance" parent="Building3/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="Building4" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6733, -0.639469, 3.1559 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="Building4"]
+
+[node name="Base" type="CSGBox" parent="Building4/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.39851, 0 )
+height = 7.02628
+material = SubResource( 30 )
+
+[node name="WindowsSize1" type="Spatial" parent="Building4/CSGCombiner"]
+
+[node name="window" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window2" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window3" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window4" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window5" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window6" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window7" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window8" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window9" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window10" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window11" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window12" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window13" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window14" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window15" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize1"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="WindowsSize2" type="Spatial" parent="Building4/CSGCombiner"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+
+[node name="window" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window2" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window3" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window4" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window5" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window6" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window7" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window8" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window9" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window10" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window11" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window12" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window13" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window14" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window15" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize2"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="WindowsSize3" type="Spatial" parent="Building4/CSGCombiner"]
+transform = Transform( -1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 0, 0, 0 )
+
+[node name="window" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window2" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window3" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window4" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window5" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window6" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window7" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window8" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window9" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window10" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window11" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window12" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window13" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window14" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window15" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize3"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="WindowsSize4" type="Spatial" parent="Building4/CSGCombiner"]
+transform = Transform( -5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0 )
+
+[node name="window" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window2" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window3" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 0.474229, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window4" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window5" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window6" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 1.69994, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window7" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window8" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window9" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 3.05159, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window10" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window11" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window12" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 4.55827, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window13" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, -0.558917, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window14" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.0457909, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="window15" type="MeshInstance" parent="Building4/CSGCombiner/WindowsSize4"]
+transform = Transform( 0.357268, 0, 0, 0, 0.501059, 0, 0, 0, 0.0877444, 0.619418, 5.87466, 1.07064 )
+mesh = SubResource( 31 )
+material/0 = SubResource( 32 )
+
+[node name="CarPath" type="Path" parent="."]
+curve = SubResource( 33 )
+script = ExtResource( 2 )
+
+[node name="PathFollow" type="PathFollow" parent="CarPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0463415, 0, -7.26037 )
+offset = 0.0013361
+
+[node name="Car" type="Spatial" parent="CarPath/PathFollow"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0267258 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="CarPath/PathFollow/Car"]
+layers = 2
+
+[node name="Middle" type="CSGBox" parent="CarPath/PathFollow/Car/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.164117, 0 )
+width = 0.904261
+height = 0.797723
+depth = 0.775275
+material = SubResource( 34 )
+
+[node name="Middle2" type="CSGBox" parent="CarPath/PathFollow/Car/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00948408, 0.660848 )
+width = 0.875448
+height = 0.438041
+depth = 0.685562
+material = SubResource( 34 )
+
+[node name="Middle3" type="CSGBox" parent="CarPath/PathFollow/Car/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00948408, -0.705084 )
+width = 0.875448
+height = 0.438041
+depth = 0.685562
+material = SubResource( 34 )
+
+[node name="Mirror" type="CSGMesh" parent="CarPath/PathFollow/Car/CSGCombiner"]
+transform = Transform( -3.77203e-08, 0, 0.862941, 0, 0.312591, 0, -0.330857, 0, -1.44622e-08, 0, 0.375846, 0.554015 )
+mesh = SubResource( 35 )
+material = SubResource( 36 )
+
+[node name="CSGBox" type="CSGBox" parent="CarPath/PathFollow/Car/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 0.199515, 0, 0, 0, 0.199515, 0.488749, -0.0986022, 0.682908 )
+width = 0.122269
+material = SubResource( 37 )
+
+[node name="CSGBox2" type="CSGBox" parent="CarPath/PathFollow/Car/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 0.199515, 0, 0, 0, 0.199515, 0.488749, -0.0986022, -0.613427 )
+width = 0.122269
+material = SubResource( 37 )
+
+[node name="CSGBox3" type="CSGBox" parent="CarPath/PathFollow/Car/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.280137, 0, 1.01342 )
+width = 0.107172
+height = 0.115977
+depth = 0.048207
+material = SubResource( 38 )
+
+[node name="Light" type="MeshInstance" parent="CarPath/PathFollow/Car/CSGCombiner/CSGBox3"]
+transform = Transform( 0.438319, 0, 0, 0, 0.155488, 0.434172, 0, -1.12241, 0.0601459, 0, -0.118072, 0.795887 )
+mesh = SubResource( 39 )
+material/0 = SubResource( 40 )
+
+[node name="CSGBox4" type="CSGBox" parent="CarPath/PathFollow/Car/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.272301, 0.009817, 1.01189 )
+width = 0.107172
+height = 0.115977
+depth = 0.048207
+material = SubResource( 38 )
+
+[node name="Light2" type="MeshInstance" parent="CarPath/PathFollow/Car/CSGCombiner/CSGBox4"]
+transform = Transform( 0.438319, 0, 0, 0, 0.155488, 0.434172, 0, -1.12241, 0.0601459, 0.0114693, -0.127889, 0.797417 )
+mesh = SubResource( 39 )
+material/0 = SubResource( 40 )
+
+[node name="Lamp" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66807, 0, 3.03896 )
+
+[node name="Light" type="MeshInstance" parent="Lamp"]
+transform = Transform( 0.597298, 0, 0, 0, 0.764237, 0, 0, 0, 0.597298, -0.824979, 0.527676, 0.00922275 )
+mesh = SubResource( 41 )
+material/0 = SubResource( 42 )
+
+[node name="Pole" type="CSGMesh" parent="Lamp"]
+transform = Transform( 0.0818418, 0, 0, 0, 1.73191, 0, 0, 0, 0.0818418, 0, 0.512859, 0 )
+mesh = SubResource( 43 )
+material = SubResource( 44 )
+
+[node name="Pole2" type="CSGMesh" parent="Lamp"]
+transform = Transform( 0.920883, 0, 0, 0, 0.0862152, 0, 0, 0, 0.0738051, -0.447096, 1.30317, 0 )
+mesh = SubResource( 43 )
+material = SubResource( 44 )
+
+[node name="Pole3" type="CSGMesh" parent="Lamp"]
+transform = Transform( 0.190916, 0, 0, 0, 0.0956592, 0, 0, 0, 0.190916, -0.819064, 1.23152, 0 )
+mesh = SubResource( 45 )
+material = SubResource( 44 )
+
+[node name="Bolt" type="MeshInstance" parent="Lamp"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.813026, 1.09585, 0 )
+mesh = SubResource( 46 )
+material/0 = SubResource( 47 )

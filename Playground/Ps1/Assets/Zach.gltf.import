@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/BigSmokeFixed.fbx-0b0f483d38bff54a36fe57f9f66f513b.scn"
+path="res://.import/Zach.gltf-1ca32d6557007c1985aeb22e58f609c1.scn"
 
 [deps]
 
-source_file="res://Ps1Shader/BigSmoka/BigSmokeFixed.fbx"
-dest_files=[ "res://.import/BigSmokeFixed.fbx-0b0f483d38bff54a36fe57f9f66f513b.scn" ]
+source_file="res://Ps1/Assets/Zach.gltf"
+dest_files=[ "res://.import/Zach.gltf-1ca32d6557007c1985aeb22e58f609c1.scn" ]
 
 [params]
 
