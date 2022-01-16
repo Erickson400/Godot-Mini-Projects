@@ -1,10 +1,11 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Ps1/scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://Ps1/scripts/CarPath.gd" type="Script" id=2]
 [ext_resource path="res://Ps1/scripts/Player.gd" type="Script" id=3]
 [ext_resource path="res://Ps1/scripts/Civ.gd" type="Script" id=4]
 [ext_resource path="res://Ps1/Assets/Zach.gltf" type="PackedScene" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -203,6 +204,7 @@ albedo_color = Color( 0.992157, 1, 0, 1 )
 
 [node name="Ps1" type="Spatial"]
 script = ExtResource( 1 )
+res_path = "res://icon.png"
 
 [node name="Zach" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.654043, 0, 0, 0, 0.654043, 0, 0, 0, 0.654043, 0.614429, -0.323549, 3.92975 )
@@ -1763,3 +1765,13 @@ material = SubResource( 44 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.813026, 1.09585, 0 )
 mesh = SubResource( 46 )
 material/0 = SubResource( 47 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( -1, 1 )
+texture = ExtResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 14.5463, 245.258 )
+scale = Vector2( -0.499838, 2.81267 )
+texture = ExtResource( 6 )
+offset = Vector2( 0, -32 )

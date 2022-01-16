@@ -10,8 +10,8 @@ config_version=4
 
 [application]
 
-config/name="Default"
-run/main_scene="res://game/game.tscn"
+config/name="Blink"
+run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
 [input]

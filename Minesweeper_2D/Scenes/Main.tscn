@@ -32,8 +32,8 @@ margin_top = 32.0
 margin_right = 85.0
 margin_bottom = 54.0
 rect_scale = Vector2( 3, 3 )
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.0352941, 0.0352941, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "000"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -45,8 +45,8 @@ margin_top = 34.1224
 margin_right = 523.245
 margin_bottom = 56.1224
 rect_scale = Vector2( 3, 3 )
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.0352941, 0.0352941, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "000"
 __meta__ = {
 "_edit_use_anchors_": false

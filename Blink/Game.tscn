@@ -1,0 +1,182 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Game.gd" type="Script" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="CylinderMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0, 0.184314, 1, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=5]
+
+[sub_resource type="ImageTexture" id=6]
+size = Vector2( 1, 1 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "BlinkClose"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -61.8506, 623.68 ), Vector2( -61.8506, 317.21 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1116.5, 117.855 ), Vector2( 1116.5, 424.324 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -56.5613, -159.795 ), Vector2( -56.5613, -159.795 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1120.74, 134.825 ), Vector2( 1120.74, 475.149 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "closed_eyes"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "BlinkOpen"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -61.8506, 317.21 ), Vector2( -61.8506, 623.68 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1116.5, 424.324 ), Vector2( 1116.5, 117.855 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -56.5613, -159.795 ), Vector2( -56.5613, -159.795 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1120.74, 475.149 ), Vector2( 1120.74, 134.825 ) ]
+}
+
+[node name="Game" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Level" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Level"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.75704 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Level"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.16599 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Camera" type="Camera" parent="Level"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -5.89272 )
+current = true
+fov = 40.0
+
+[node name="Camera2" type="Camera" parent="Level"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.62229 )
+current = true
+fov = 40.0
+
+[node name="Blink" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Blink"]
+modulate = Color( 1, 0.156863, 0.156863, 1 )
+material = SubResource( 5 )
+position = Vector2( -56.5613, -159.795 )
+scale = Vector2( 1120.74, 134.825 )
+texture = SubResource( 6 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="Blink"]
+modulate = Color( 1, 0.156863, 0.156863, 1 )
+material = SubResource( 5 )
+position = Vector2( -61.8506, 623.68 )
+scale = Vector2( 1116.5, 117.855 )
+texture = SubResource( 6 )
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Blink"]
+playback_speed = 8.0
+anims/BlinkClose = SubResource( 7 )
+anims/BlinkOpen = SubResource( 8 )

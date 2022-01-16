@@ -9,43 +9,32 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
+"base": "Node2D",
 "class": "Ball",
 "language": "GDScript",
-"path": "res://Genetic/Ball.gd"
+"path": "res://game/entities/ball.gd"
 }, {
 "base": "Node",
-"class": "DNA",
+"class": "NeuralNetwork",
 "language": "GDScript",
-"path": "res://Genetic/DNA.gd"
+"path": "res://game/logic/neuralnetwork.gd"
+}, {
+"base": "Object",
+"class": "sus",
+"language": "GDScript",
+"path": "res://game/entities/sus.gd"
 } ]
 _global_script_class_icons={
 "Ball": "",
-"DNA": ""
+"NeuralNetwork": "",
+"sus": ""
 }
 
 [application]
 
-config/name="PlayGround"
-run/main_scene="res://Ps1/Ps1.tscn"
+config/name="Evolution"
+run/main_scene="res://game/game.tscn"
 config/icon="res://icon.png"
-
-[autoload]
-
-Global="*res://Network/Global.gd"
-
-[debug]
-
-settings/fps/force_fps=20
-
-[display]
-
-window/size/width=240
-window/size/height=160
-window/size/test_width=1270
-window/size/test_height=700
-window/stretch/mode="viewport"
-window/stretch/aspect="keep"
 
 [input]
 
@@ -77,16 +66,6 @@ ui_down={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
-Elevate={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
-}
-Desend={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
-}
 
 [physics]
 
@@ -94,6 +73,4 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/filters/anisotropic_filter_level=1
-environment/default_clear_color=Color( 0.301961, 0.301961, 0.301961, 1 )
 environment/default_environment="res://default_env.tres"
