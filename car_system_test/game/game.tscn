@@ -32,7 +32,7 @@ light_energy = 0.8
 shadow_enabled = true
 
 [node name="Floor" type="StaticBody" parent="."]
-collision_mask = 2
+collision_mask = 3
 physics_material_override = SubResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
@@ -50,6 +50,16 @@ transform = Transform( 0.963012, 0.269458, 0, -0.269458, 0.963012, 0, 0, 0, 1, -
 shape = SubResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Floor/CollisionShape8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135253, 0 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+material/0 = null
+
+[node name="CollisionShape12" type="CollisionShape" parent="Floor"]
+transform = Transform( 5.84973, 0.209083, 0, -0.0357196, 0.999362, 0, 0, 0, 5.15717, -77.8081, 2.85736, 0.840525 )
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Floor/CollisionShape12"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135253, 0 )
 mesh = SubResource( 2 )
 skeleton = NodePath("../../..")
@@ -84,15 +94,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135253, 0 )
 mesh = SubResource( 2 )
 skeleton = NodePath("../../..")
 material/0 = null
-
-[node name="MeshInstance2" type="MeshInstance" parent="Floor"]
-mesh = SubResource( 2 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="Floor/MeshInstance2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.135253, 0 )
-shape = SubResource( 3 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="Floor"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25175, -1.66898, -2.35464 )

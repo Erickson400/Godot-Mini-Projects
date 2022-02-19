@@ -159,6 +159,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.3, -0.64 )
 collision_layer = 2
 mass = 500.0
 physics_material_override = SubResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="CollisionShape" type="CollisionShape" parent="FRWheel"]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.15, 0, 0 )
@@ -209,7 +212,7 @@ material/1 = null
 material/2 = null
 
 [node name="FLJoint" type="Generic6DOFJoint" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.3, -0.64 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0.3, -0.64 )
 nodes/node_a = NodePath("../Body")
 nodes/node_b = NodePath("../FLWheel")
 angular_limit_x/enabled = false
@@ -228,7 +231,7 @@ angular_motor_y/enabled = true
 angular_motor_y/force_limit = 80000.0
 
 [node name="FRJoint" type="Generic6DOFJoint" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, -0.64 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.3, -0.64 )
 nodes/node_a = NodePath("../Body")
 nodes/node_b = NodePath("../FRWheel")
 angular_limit_x/enabled = false
@@ -255,8 +258,8 @@ nodes/node_a = NodePath("../Body")
 nodes/node_b = NodePath("../BLWheel")
 angular_limit_x/enabled = false
 angular_motor_x/enabled = true
-angular_motor_x/target_velocity = 10.0
-angular_motor_x/force_limit = 10000.0
+angular_motor_x/target_velocity = 5000.0
+angular_motor_x/force_limit = 0.0
 linear_limit_y/upper_distance = 0.2
 linear_limit_y/lower_distance = -0.1
 linear_limit_y/softness = 0.01
@@ -266,7 +269,9 @@ linear_spring_y/enabled = true
 linear_spring_y/stiffness = 10000.0
 linear_spring_y/damping = 5000.0
 linear_spring_y/equilibrium_point = -1.0
-angular_motor_y/enabled = true
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="BRJoint" type="Generic6DOFJoint" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.3, 0.88 )
@@ -274,8 +279,8 @@ nodes/node_a = NodePath("../Body")
 nodes/node_b = NodePath("../BRWheel")
 angular_limit_x/enabled = false
 angular_motor_x/enabled = true
-angular_motor_x/target_velocity = 10.0
-angular_motor_x/force_limit = 10000.0
+angular_motor_x/target_velocity = 5000.0
+angular_motor_x/force_limit = 0.0
 linear_limit_y/upper_distance = 0.2
 linear_limit_y/lower_distance = -0.1
 linear_limit_y/softness = 0.01
