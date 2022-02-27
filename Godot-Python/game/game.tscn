@@ -50,4 +50,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Health" type="Label" parent="MyNode"]
+margin_left = 36.0
+margin_top = 202.0
+margin_right = 142.0
+margin_bottom = 257.0
+custom_fonts/font = SubResource( 2 )
+text = "Speed:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="text_changed" from="MyNode/SpeedEdit" to="MyNode" method="_on_SpeedEdit_text_changed"]

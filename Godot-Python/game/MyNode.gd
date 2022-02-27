@@ -3,11 +3,14 @@ extends Node
 
 
 
-var speed = 500
+var speed = 0.001
 
 
 func _ready():
 	$SpeedEdit.text = str(speed)
+	
+
+	
 
 func _process(_delta):
 	if Input.is_action_pressed("ui_cancel"):
@@ -27,7 +30,12 @@ func _process(_delta):
 		get_parent().move_up(speed)
 	if Input.is_action_pressed("ui_page_down"):
 		get_parent().move_down(speed)
+		
+func hex(num):
+	return "0x%X" % num
 
+func set_health(num):
+	$Health.text = str(num)
 
 func _on_SpeedEdit_text_changed():
 	speed = int($SpeedEdit.text)
