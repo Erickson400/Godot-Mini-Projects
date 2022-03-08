@@ -1,56 +1,62 @@
 extends KinematicBody2D
 
-var network = NeuralNetwork.new()
-var fitness = 0
-var timer = 0
 
-const GRAVITY = 2000
+
+
+#==========Physics Vars===========
 var vertical_velocity = 0
-var crashed = false
 
-func reset(new_dna:Array, position_p:Vector2):
-	network.set_dna(new_dna) 
-	position = position_p 
-	crashed = false
-	visible = true
-	vertical_velocity = 0
+signal death()
+
+# Fitness is given every frame as long as its touching the ground
+var fitness = 0
+
+#=======NEAT funcs========
+func sense() -> Array:
+	var senses = [
+		self.get_distance_to_cactus()/500,
+		self.get_distance_to_ground()/200,
+	]
+	return senses
+
+func act(actions):
+	if actions[0] > 0:
+		self.jump()
+
+func get_fitness() -> float:
+	return fitness
+
+
+
+
+
+
+
+
+
 
 
 
 func _process(delta):
-	# Apply Gravity
-	vertical_velocity += GRAVITY * delta
+	# Apply Physics
+	vertical_velocity += 2000 * delta
 	move_and_slide(Vector2(0,vertical_velocity), Vector2.UP)
-	
-	if not crashed:
-		if is_on_floor():
-			timer += int(OS.get_ticks_msec())
-		
-		# Jump if output is greater than 0
-		if OS.get_ticks_msec() % 10 == 0:
-			var network_data = network.get_data([self.get_sensor_distances()])
-			if network_data[0] > 0.5:
-				self.jump()
-			
-	
-
-func get_sensor_distances():
-	# Returns them normalized from 0 to 1
-	var distances = []
-	var sensor = $Sensor
-	
-	if sensor.is_colliding():
-		var point = sensor.get_collision_point()
-		var normalized_distance = point.distance_to(global_transform.origin)/500
-		return normalized_distance
-	return 1
+	if is_on_floor():
+		fitness += 1*delta
 
 func jump():
 	if is_on_floor():
 		vertical_velocity = -1000
-		#var before = fitness
-		#fitness = int(fitness * 0.5)
-		#print("before: ", before, " after: ", fitness)
+
+func get_distance_to_cactus() -> float:
+	var cactus = get_tree().get_nodes_in_group("cactus")[0]
+	return cactus.position.x-self.position.x
+
+func get_distance_to_ground() -> float:
+	return self.position.y
+
+
+
 
 
 
@@ -60,8 +66,5 @@ func jump():
 
 func _on_CactusChecker_area_entered(area):
 	if area.is_in_group("cactus"):
-		crashed = true
-		visible = false
-		fitness += timer
-		#print("Crashed")
-		#print(fitness)
+		hide()
+		emit_signal('death')

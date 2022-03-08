@@ -9,26 +9,74 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
-"class": "Genetic",
+"base": "Reference",
+"class": "Agent",
 "language": "GDScript",
-"path": "res://game/logic/genetic.gd"
+"path": "res://NEAT_code/agent.gd"
 }, {
 "base": "Node",
-"class": "NeuralNetwork",
+"class": "GeneticAlgorithm",
 "language": "GDScript",
-"path": "res://game/logic/neuralnetwork.gd"
+"path": "res://NEAT_code/ga.gd"
+}, {
+"base": "Reference",
+"class": "Genome",
+"language": "GDScript",
+"path": "res://NEAT_code/genome.gd"
+}, {
+"base": "Node2D",
+"class": "Highlighter",
+"language": "GDScript",
+"path": "res://NEAT_usability/gui/highlighter.gd"
+}, {
+"base": "Reference",
+"class": "Link",
+"language": "GDScript",
+"path": "res://NEAT_code/links.gd"
+}, {
+"base": "CanvasLayer",
+"class": "NeatGUI",
+"language": "GDScript",
+"path": "res://NEAT_usability/gui/NeatGUI.gd"
+}, {
+"base": "Reference",
+"class": "NeuralNet",
+"language": "GDScript",
+"path": "res://NEAT_code/neuralnet.gd"
+}, {
+"base": "Reference",
+"class": "Neuron",
+"language": "GDScript",
+"path": "res://NEAT_code/neurons.gd"
+}, {
+"base": "Reference",
+"class": "Species",
+"language": "GDScript",
+"path": "res://NEAT_code/species.gd"
 } ]
 _global_script_class_icons={
-"Genetic": "",
-"NeuralNetwork": ""
+"Agent": "",
+"GeneticAlgorithm": "",
+"Genome": "",
+"Highlighter": "",
+"Link": "",
+"NeatGUI": "",
+"NeuralNet": "",
+"Neuron": "",
+"Species": ""
 }
 
 [application]
 
 config/name="Evolution"
-run/main_scene="res://game/game.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://game/traning_scene.tscn"
+config/icon="res://game/assets/dino-trex.png"
+
+[autoload]
+
+Innovations="*res://NEAT_code/innovations.gd"
+Params="*res://NEAT_code/params.gd"
+Utils="*res://NEAT_code/utils.gd"
 
 [display]
 

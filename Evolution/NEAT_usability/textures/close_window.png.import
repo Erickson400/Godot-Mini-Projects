@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/car_texture.png-cfff70b4740a23a899d23f4a2b853c47.stex"
+path="res://.import/close_window.png-4daf27eba40ea3a4724648974cc1a3e2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/entities/car/car_texture.png"
-dest_files=[ "res://.import/car_texture.png-cfff70b4740a23a899d23f4a2b853c47.stex" ]
+source_file="res://NEAT_usability/textures/close_window.png"
+dest_files=[ "res://.import/close_window.png-4daf27eba40ea3a4724648974cc1a3e2.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
