@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://game/game.py" type="Script" id=1]
+[ext_resource path="res://game/game.py" type="TextFile" id=1]
 [ext_resource path="res://game/MyNode.gd" type="Script" id=2]
 [ext_resource path="res://game/FFFFORWA.TTF" type="DynamicFontData" id=3]
 

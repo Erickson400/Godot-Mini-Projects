@@ -19,3 +19,19 @@ func closed_eyes():
 		active_cam.current = true
 
 
+
+func _ready():
+	#print(OS.get_executable_path().get_base_dir())
+	var outputs = []
+	var exit_code = OS.execute(OS.get_executable_path()+"test.exe", [], true, outputs)
+	
+	print(exit_code)
+	print(outputs)
+
+
+
+
+
+
+
+	

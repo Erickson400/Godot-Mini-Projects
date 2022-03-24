@@ -1,7 +1,7 @@
 extends Node
 
 var AGENT_BODY_PATH = "res://game/entities/dino/dino.tscn"
-var ga = GeneticAlgorithm.new(2, 1, AGENT_BODY_PATH, true, "dino_params")
+var ga = GeneticAlgorithm.new(3, 2, AGENT_BODY_PATH, true, "dino_params")
 
 func _ready():
 	add_child(ga)
@@ -23,9 +23,15 @@ func _process(delta):
 		ga.evaluate_generation()
 		ga.next_generation()
 		self.place_bodies(ga.get_curr_bodies())
+		$Game/Cactus.position = $Game/CactusSpawn.position
+		$Game.inc_generation_text()
 	
 	if Input.is_action_just_pressed("ui_select"):
 		ga.evaluate_generation()
 		ga.next_generation()
 		self.place_bodies(ga.get_curr_bodies())
+		$Game/Cactus.position = $Game/CactusSpawn.position
+		$Game.inc_generation_text()
+		
+
 
