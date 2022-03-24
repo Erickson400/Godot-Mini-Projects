@@ -1,2 +1,0 @@
-recursive-include pymeow *.pyd
-recursive-include pymeow *.so
