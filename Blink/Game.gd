@@ -22,11 +22,15 @@ func closed_eyes():
 
 func _ready():
 	#print(OS.get_executable_path().get_base_dir())
+	
 	var outputs = []
-	var exit_code = OS.execute(OS.get_executable_path()+"test.exe", [], true, outputs)
+	var exit_code = OS.execute("gomem_test.exe", [], true, outputs)
+	print(outputs[0])
+	
+	#var exit_code = OS.execute(OS.get_executable_path()+"go.exe", ["-version"], true, outputs)
 	
 	print(exit_code)
-	print(outputs)
+	
 
 
 
