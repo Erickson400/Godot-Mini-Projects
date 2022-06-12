@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://gui.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -180,3 +181,5 @@ centered = false
 playback_speed = 8.0
 anims/BlinkClose = SubResource( 7 )
 anims/BlinkOpen = SubResource( 8 )
+
+[node name="Main" parent="." instance=ExtResource( 2 )]
