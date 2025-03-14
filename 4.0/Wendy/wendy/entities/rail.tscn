@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cys88xhnqgnym"]
+
+[ext_resource type="Script" path="res://entities/rail.gd" id="1_5y1u5"]
+[ext_resource type="Texture2D" uid="uid://rnxmkbqt73hj" path="res://assets/pixel.png" id="2_gi7kp"]
+
+[node name="Rail" type="Node2D"]
+script = ExtResource("1_5y1u5")
+PLANK_LIGHT_COLOR = Color(0.885596, 0.660894, 0.0607347, 1)
+PLANK_DARK_COLOR = Color(0.2, 0.102, 0.032, 1)
+bg_color = Color(1, 0.991491, 0.489478, 0.701961)
+shadow_color = Color(0, 0, 0, 0.85098)
+
+[node name="BG" type="Sprite2D" parent="."]
+texture = ExtResource("2_gi7kp")
+metadata/_edit_lock_ = true
+
+[node name="Planks" type="Node2D" parent="."]
+
+[node name="Shadows" type="Node2D" parent="."]

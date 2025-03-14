@@ -1,0 +1,328 @@
+[gd_scene load_steps=37 format=3 uid="uid://hol624nvo12o"]
+
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_tsq1w"]
+[ext_resource type="Texture2D" uid="uid://m1j5jc3tskhd" path="res://gfx/bg1.png" id="2_4rjxv"]
+[ext_resource type="PackedScene" uid="uid://c36bn18ql66vu" path="res://scenes/entities/character/character.tscn" id="3_idc8q"]
+[ext_resource type="FontFile" uid="uid://bayew0ra0unuc" path="res://misc/Helvetica CE Bold.otf" id="4_3o1h0"]
+[ext_resource type="AudioStream" uid="uid://b3cofhkc6e7or" path="res://sfx/hit_dom.wav" id="4_uokht"]
+[ext_resource type="AudioStream" uid="uid://w7220wqyhm7x" path="res://sfx/pain_dom.wav" id="5_vjb4d"]
+[ext_resource type="AudioStream" uid="uid://bqhhrqqyw2xxd" path="res://sfx/win_lose.wav" id="6_hm0yv"]
+[ext_resource type="AudioStream" uid="uid://d2ani5p65o7rd" path="res://sfx/hit_cash.wav" id="7_4ov5l"]
+[ext_resource type="AudioStream" uid="uid://cgp6fgx38cb0l" path="res://sfx/pain_cash.wav" id="8_cvvlh"]
+[ext_resource type="AudioStream" uid="uid://bkp61xl1ovx1" path="res://sfx/win_cash.wav" id="9_t12fb"]
+[ext_resource type="AudioStream" uid="uid://b03qbj30vgc2x" path="res://sfx/hit_comp.wav" id="10_onhi6"]
+[ext_resource type="AudioStream" uid="uid://onhxybi7ifpy" path="res://sfx/pain_comp.wav" id="11_el4f2"]
+[ext_resource type="AudioStream" uid="uid://dvbdyly4161ha" path="res://sfx/win_comp.wav" id="12_i0l16"]
+[ext_resource type="AudioStream" uid="uid://bx00vs08uwg37" path="res://sfx/hit_staff.wav" id="13_jgysv"]
+[ext_resource type="AudioStream" uid="uid://bnqt8vituthd7" path="res://sfx/pain_staff.wav" id="14_3fyrs"]
+[ext_resource type="AudioStream" uid="uid://b6wscwaicodq0" path="res://sfx/win_staff.wav" id="15_c8bbh"]
+[ext_resource type="AudioStream" uid="uid://csjlxitox7ea0" path="res://sfx/lose.wav" id="17_8eajc"]
+[ext_resource type="Texture2D" uid="uid://cck7ul2wa08rk" path="res://gfx/icontime.png" id="17_vtqus"]
+[ext_resource type="AudioStream" uid="uid://cllkecrvroi8e" path="res://sfx/win.wav" id="18_84qw0"]
+[ext_resource type="Texture2D" uid="uid://dwuixvo7fsccn" path="res://gfx/iconcomp.png" id="18_y7a1y"]
+[ext_resource type="Texture2D" uid="uid://53kpevhfao0g" path="res://gfx/iconmoney.png" id="19_pbuy6"]
+[ext_resource type="Texture2D" uid="uid://dmyunt4jdbhlg" path="res://gfx/iconstaff.png" id="20_ribhj"]
+[ext_resource type="Script" path="res://scenes/entities/oval/oval.gd" id="25_s0dco"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ti24"]
+font = ExtResource("4_3o1h0")
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_3odld"]
+font = ExtResource("4_3o1h0")
+font_size = 35
+font_color = Color(1, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wfxdl"]
+font = ExtResource("4_3o1h0")
+font_size = 35
+font_color = Color(1, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2g10g"]
+font = ExtResource("4_3o1h0")
+font_size = 35
+font_color = Color(1, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8akle"]
+font = ExtResource("4_3o1h0")
+font_size = 15
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v2xu6"]
+font = ExtResource("4_3o1h0")
+font_size = 15
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jyx3o"]
+font = ExtResource("4_3o1h0")
+font_size = 15
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_obqn6"]
+font = ExtResource("4_3o1h0")
+font_size = 35
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8gq80"]
+font = ExtResource("4_3o1h0")
+font_size = 15
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7kdtj"]
+font = ExtResource("4_3o1h0")
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_u1xlu"]
+font = ExtResource("4_3o1h0")
+font_size = 15
+font_color = Color(1, 0.803922, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_30sy8"]
+font = ExtResource("4_3o1h0")
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_3mugw"]
+font = ExtResource("4_3o1h0")
+font_size = 15
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_tsq1w")
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("2_4rjxv")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Player" parent="Characters" instance=ExtResource("3_idc8q")]
+z_index = -1
+position = Vector2(120, 390)
+is_player = true
+hit = ExtResource("4_uokht")
+pain = ExtResource("5_vjb4d")
+lose = ExtResource("6_hm0yv")
+
+[node name="Finance" parent="Characters" instance=ExtResource("3_idc8q")]
+position = Vector2(400, 390)
+animation = &"finance"
+hit = ExtResource("7_4ov5l")
+pain = ExtResource("8_cvvlh")
+lose = ExtResource("9_t12fb")
+
+[node name="Computers" parent="Characters" instance=ExtResource("3_idc8q")]
+z_index = 1
+position = Vector2(450, 390)
+animation = &"comp"
+hit = ExtResource("10_onhi6")
+pain = ExtResource("11_el4f2")
+lose = ExtResource("12_i0l16")
+
+[node name="Teachers" parent="Characters" instance=ExtResource("3_idc8q")]
+z_index = 1
+position = Vector2(500, 390)
+animation = &"staff"
+hit = ExtResource("13_jgysv")
+pain = ExtResource("14_3fyrs")
+lose = ExtResource("15_c8bbh")
+
+[node name="Oval" type="Node2D" parent="."]
+visible = false
+position = Vector2(406, 73)
+script = ExtResource("25_s0dco")
+
+[node name="HUD" type="Node2D" parent="."]
+
+[node name="IconTime" type="Sprite2D" parent="HUD"]
+position = Vector2(100, 560)
+texture = ExtResource("17_vtqus")
+
+[node name="IconComputers" type="Sprite2D" parent="HUD"]
+position = Vector2(300, 560)
+texture = ExtResource("18_y7a1y")
+
+[node name="IconCash" type="Sprite2D" parent="HUD"]
+position = Vector2(500, 560)
+texture = ExtResource("19_pbuy6")
+
+[node name="IconTeachers" type="Sprite2D" parent="HUD"]
+position = Vector2(700, 560)
+texture = ExtResource("20_ribhj")
+
+[node name="Text" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Time" type="Label" parent="HUD/Text"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 534.0
+offset_right = 121.0
+offset_bottom = 568.0
+text = "60"
+label_settings = SubResource("LabelSettings_0ti24")
+horizontal_alignment = 1
+
+[node name="ComputersScore" type="Label" parent="HUD/Text"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 533.0
+offset_right = 320.0
+offset_bottom = 567.0
+text = "3"
+label_settings = SubResource("LabelSettings_3odld")
+
+[node name="CashScore" type="Label" parent="HUD/Text"]
+layout_mode = 0
+offset_left = 501.0
+offset_top = 533.0
+offset_right = 520.0
+offset_bottom = 567.0
+text = "3"
+label_settings = SubResource("LabelSettings_wfxdl")
+
+[node name="TeachersScore" type="Label" parent="HUD/Text"]
+layout_mode = 0
+offset_left = 701.0
+offset_top = 533.0
+offset_right = 720.0
+offset_bottom = 567.0
+text = "3"
+label_settings = SubResource("LabelSettings_2g10g")
+
+[node name="ComputersTarget" type="Label" parent="HUD/Text"]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 543.0
+offset_right = 335.0
+offset_bottom = 558.0
+text = "5"
+label_settings = SubResource("LabelSettings_8akle")
+
+[node name="CashTarget" type="Label" parent="HUD/Text"]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 543.0
+offset_right = 535.0
+offset_bottom = 558.0
+text = "5"
+label_settings = SubResource("LabelSettings_v2xu6")
+
+[node name="TeachersTarget" type="Label" parent="HUD/Text"]
+layout_mode = 0
+offset_left = 726.0
+offset_top = 543.0
+offset_right = 735.0
+offset_bottom = 558.0
+text = "5"
+label_settings = SubResource("LabelSettings_jyx3o")
+
+[node name="Gameover" type="Control" parent="HUD/Text"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CVG" type="Label" parent="HUD/Text/Gameover"]
+visible = false
+layout_mode = 0
+offset_left = 244.0
+offset_top = 283.0
+offset_right = 557.0
+offset_bottom = 317.0
+text = "CVG is SCREWED!"
+label_settings = SubResource("LabelSettings_obqn6")
+
+[node name="ESC" type="Label" parent="HUD/Text/Gameover"]
+visible = false
+layout_mode = 0
+offset_left = 362.0
+offset_top = 313.0
+offset_right = 438.0
+offset_bottom = 328.0
+text = "Press ESC"
+label_settings = SubResource("LabelSettings_8gq80")
+
+[node name="Dialogue" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="WeNeedCash" type="Label" parent="Dialogue"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 260.0
+offset_right = 267.0
+offset_bottom = 275.0
+text = "We want     bags of cash,"
+label_settings = SubResource("LabelSettings_7kdtj")
+
+[node name="WeNeedComputers" type="Label" parent="Dialogue"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 280.0
+offset_right = 281.0
+offset_bottom = 295.0
+text = "we need     computers, and"
+label_settings = SubResource("LabelSettings_7kdtj")
+
+[node name="WeNeedTeachers" type="Label" parent="Dialogue"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 300.0
+offset_right = 269.0
+offset_bottom = 315.0
+text = "we want     new teachers!"
+label_settings = SubResource("LabelSettings_7kdtj")
+
+[node name="CashTarget" type="Label" parent="Dialogue"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 260.0
+offset_right = 165.0
+offset_bottom = 275.0
+text = "4"
+label_settings = SubResource("LabelSettings_u1xlu")
+
+[node name="ComputersTarget" type="Label" parent="Dialogue"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 280.0
+offset_right = 165.0
+offset_bottom = 295.0
+text = "4"
+label_settings = SubResource("LabelSettings_u1xlu")
+
+[node name="TeachersTarget" type="Label" parent="Dialogue"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 300.0
+offset_right = 165.0
+offset_bottom = 315.0
+text = "4"
+label_settings = SubResource("LabelSettings_u1xlu")
+
+[node name="Haha" type="Label" parent="Dialogue"]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 280.0
+offset_right = 485.0
+offset_bottom = 295.0
+text = "Hahahaha!"
+label_settings = SubResource("LabelSettings_30sy8")
+
+[node name="ScrewYou" type="Label" parent="Dialogue"]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 300.0
+offset_right = 500.0
+offset_bottom = 315.0
+text = "SCREW YOU!
+"
+label_settings = SubResource("LabelSettings_3mugw")
+
+[node name="Lose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_8eajc")
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_84qw0")

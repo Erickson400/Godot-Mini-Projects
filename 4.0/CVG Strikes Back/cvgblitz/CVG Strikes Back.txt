@@ -1,0 +1,20 @@
+CVG Strikes Back
+-----------------
+www.mdickie.com
+mdickie@lineone.net
+
+*Remember to EXTRACT the files so that the directories remain intact...
+
+THE GAME
+As the leader of a videogames course, it is your responsibility to claim the resources that 
+the students are crying out for. Each game there will be a certain amount of MONEY, COMPUTERS,
+and TEACHERS to retrieve in order to keep the course going. Unfortunately, the department heads
+are reluctant to co-operate and must have the resources beaten out of them... 
+
+CONTROLS
+ESC = Quit
+Enter = Proceed
+Left/Right = Move
+Space = Punch
+
+(Pressing left/right at the title screen adjusts the pitch of the theme song!)

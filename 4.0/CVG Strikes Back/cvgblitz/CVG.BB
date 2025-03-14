@@ -1,0 +1,568 @@
+;-------------------------------------------------------------------------
+;/////////////////////////// CVG STRIKES BACK! ///////////////////////////
+;-------------------------------------------------------------------------
+;~~~~~~~~~~~~~~~~~~~~~ Copyright © Mat Dickie 2001 ~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~ This program may not be re-released under any other ~~~~~~~~~~
+;~~~~~~~ identity or sold commercially without express permission. ~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Graphics 800,600,16,1
+SetBuffer BackBuffer()
+AutoMidHandle True
+;/// GLOBAL VARIABLES
+Global gameover=0, ended=0
+Global time=0, tcount=0, frate=60, timer
+Global keytim=0, segtim=0
+Global randy=0
+;//var arrays
+Dim iGraph(3)
+Dim iDir(3)
+Dim iState(3)
+Dim iScore(3)
+Dim iTScore(3)
+Dim iX(3)
+Dim iY(3)
+iGraph(1)=0
+iGraph(2)=1
+iGraph(3)=2
+;data for level
+Global level_left=8
+Global level_right=808
+
+;////// GRAPHICS ///////////////////
+Global g_logo=LoadImage("gfx\logo.bmp")	
+Global g_cvg=LoadImage("gfx\cvglogo.bmp")	
+Global g_bg=LoadImage("gfx\bg1.bmp")
+Global g_icon1=LoadImage("gfx\icontime.bmp")
+Global g_icon2=LoadImage("gfx\iconmoney.bmp")
+Global g_icon3=LoadImage("gfx\iconcomp.bmp")
+Global g_icon4=LoadImage("gfx\iconstaff.bmp")
+Global g_items=LoadAnimImage("gfx\items.bmp",120,120,0,3)
+;anim arrays
+Dim aWalk(4)
+aWalk(1)=1
+aWalk(2)=0
+aWalk(3)=2
+aWalk(4)=0
+;//var arrays
+Dim pGraph(4)
+Dim pX(4)
+Dim pY(4)
+Dim pZ(4)
+Dim pDir(4)
+Dim pFlipper(4)
+Dim pDelay(4)
+Dim pStep(4)
+Dim pFrame(4)
+Dim pSpeed(4)
+Dim pState(4)
+Dim pReady(4)
+Dim pControl(4)
+Dim pLeft(4)
+Dim pRight(4)
+Dim pUp(4)
+Dim pDown(4)
+Dim pButtA(4)
+Dim pFo(4)
+Dim pAtt(4)
+Dim pTX(4)
+Dim pOccupy(4)
+Dim pHealth(4)
+Dim pSHit(4)
+Dim pSPain(4)
+Dim pSLose(4)
+;//////// INIT PLAYERS ////////
+;1
+pGraph(1)=LoadAnimImage("gfx\dom.bmp",120,120,0,24)
+pX(1)=100
+pY(1)=390
+pZ(1)=-1
+pFlipper(1)=12
+pDir(1)=0
+pDelay(1)=0
+pStep(1)=0
+pFrame(1)=1
+pSpeed(1)=2
+pState(1)=0
+pReady(1)=1
+pControl(1)=1
+pAtt(1)=1
+pTX(1)=Rnd(level_left,level_right)
+pOccupy(1)=0
+pHealth(1)=5
+pSHit(1)=LoadSound("sfx\Hit_Dom.wav")
+pSPain(1)=LoadSound("sfx\Pain_Dom.wav")
+pSLose(1)=LoadSound("sfx\Win_Lose.wav")
+;2
+pGraph(2)=LoadAnimImage("gfx\finance.bmp",120,120,0,12)
+pX(2)=300
+pY(2)=390
+pZ(2)=0
+pFlipper(2)=6
+pDir(2)=0
+pDelay(2)=0
+pStep(2)=0
+pFrame(2)=0
+pSpeed(2)=2
+pState(2)=0
+pReady(2)=1
+pControl(2)=0
+pAtt(2)=1
+pTX(2)=Rnd(level_left,level_right)
+pOccupy(2)=0
+pHealth(2)=5
+pSHit(2)=LoadSound("sfx\Hit_Cash.wav")
+pSPain(2)=LoadSound("sfx\Pain_Cash.wav")
+pSLose(2)=LoadSound("sfx\Win_Cash.wav")
+;3
+pGraph(3)=LoadAnimImage("gfx\comp.bmp",120,120,0,12)
+pX(3)=400
+pY(3)=390
+pZ(3)=1
+pFlipper(3)=6
+pDir(3)=0
+pDelay(3)=0
+pStep(3)=0
+pFrame(3)=0
+pSpeed(3)=2
+pState(3)=0
+pReady(3)=1
+pControl(3)=0
+pAtt(3)=1
+pTX(3)=Rnd(level_left,level_right)
+pOccupy(3)=0
+pHealth(3)=5
+pSHit(3)=LoadSound("sfx\Hit_Comp.wav")
+pSPain(3)=LoadSound("sfx\Pain_Comp.wav")
+pSLose(3)=LoadSound("sfx\Win_Comp.wav")
+;4
+pGraph(4)=LoadAnimImage("gfx\staff.bmp",120,120,0,12)
+pX(4)=500
+pY(4)=390
+pZ(4)=1
+pFlipper(4)=6
+pDir(4)=0
+pDelay(4)=0
+pStep(4)=0
+pFrame(4)=0
+pSpeed(4)=2
+pState(4)=0
+pReady(4)=1
+pControl(4)=0
+pAtt(4)=1
+pTX(4)=Rnd(level_left,level_right)
+pOccupy(4)=0
+pHealth(4)=5
+pSHit(4)=LoadSound("sfx\Hit_Staff.wav")
+pSPain(4)=LoadSound("sfx\Pain_Staff.wav")
+pSLose(4)=LoadSound("sfx\Win_Staff.wav") 
+
+;SOUND
+Global chTheme
+Global sTheme=LoadSound("sfx\Theme.wav")
+Global sWin=LoadSound("sfx\Win.wav")
+Global sLose=LoadSound("sfx\Lose.wav")
+;SoundVolume sTheme,0.8
+
+;TEXT
+Global font1=LoadFont("helvetica",15,1,0,0)
+Global font2=LoadFont("helvetica",35,1,0,0)
+
+Titles()
+;//////// TITLES ///////////////////////////////////////////////////
+Function Titles()
+ keytim=0
+ gameover=0
+ ended=0
+ pitcher=22000
+ LoopSound sTheme
+ chTheme=PlaySound(sTheme)
+ For cyc=1 To 4
+  pReady(cyc)=1
+ Next 
+ Repeat  
+    rando=Rnd(1,3)
+    keytim=keytim+1
+	ChannelPitch chTheme,pitcher
+	;sort out the screen values
+	ClsColor 0,0,0
+	MaskImage g_logo,255,0,255
+	Cls
+	If keytim>20 
+	 If KeyDown(1) Then End
+	EndIf
+	If KeyDown(203) Then pitcher=pitcher-50
+	If KeyDown(205) Then pitcher=pitcher+50
+	;If KeyDown(200) Then frate=frate-1
+	;If KeyDown(208) Then frate=frate+1
+	DrawImage(g_cvg,400,300)
+	DrawImage(g_logo,400,100)
+	SetFont font2
+    Color 255,Rnd(0,255),0
+    Text 400,460,"Press Enter",1,1
+    SetFont font1
+    Color 55,55,55
+    Text 400,570,"The characters and events portrayed in this game are fictitious.",1,1
+    Text 400,586,"Any similarities to real life are purely coincidental...",1,1
+	Flip	
+ Until KeyDown(28)
+ Main()
+End Function 
+
+;////////// GAME ///////////////////////////////////////////////////
+Function Main()
+ ;get scores
+ For count=1 To 3
+  iScore(count)=0
+  iTScore(count)=0
+ Next 
+ For count=1 To 9
+  rando=Rnd(1,3)
+  iTScore(rando)=iTScore(rando)+1
+ Next 
+ ;sort out the screen values
+ ClsColor 255,255,255
+ MaskImage g_bg,255,0,255
+ MaskImage g_icon1,255,0,255 : MaskImage g_icon2,255,0,255 
+ MaskImage g_icon3,255,0,255 : MaskImage g_icon4,255,0,255
+ MaskImage g_items,255,0,255
+ For cyc=1 To 4
+	MaskImage pGraph(cyc),255,0,255
+ Next 
+ pX(1)=120 : pX(2)=400 : pX(3)=450 : pX(4)=500
+ ;SEGMENT ssssssssssssssssssssssssss
+ segtim=0
+ pFrame(1)=6
+ Repeat 
+  Cls 
+  DrawImage(g_bg,400,300)
+  segtim=segtim+1
+  pDir(1)=0 : pDir(2)=pFlipper(2) : pDir(3)=pFlipper(2) : pDir(4)=pFlipper(2)
+  ;dom talk
+  If segtim<400
+   randy=Rnd(0,4)
+   If randy=0 Then pFrame(1)=Rnd(6,7)
+   pFrame(2)=0 : pFrame(3)=0 : pFrame(4)=0
+   SetFont font1
+   Color 255,255,255
+   Text 90,260,"We want     bags of cash,"
+   Text 90,280,"we need     computers, and"
+   Text 90,300,"we want     new teachers!"
+   Color 255,205,0
+   Text 142,260,iTScore(1)
+   Text 142,280,iTScore(2)
+   Text 142,300,iTScore(3)
+  EndIf
+  ;enemy talk
+  If segtim=>400
+   pFrame(1)=0
+   pFrame(2)=3 : pFrame(3)=3 : pFrame(4)=3
+   SetFont font1
+   Color 255,255,255
+   Text 408,280,"Hahahaha!"
+   Text 405,300,"SCREW YOU!"
+  EndIf 
+  ;display
+  DrawImage(pGraph(1),120,390,pFrame(1)+pDir(1))
+  DrawImage(pGraph(2),pX(2),390,pFrame(2)+pDir(2))
+  DrawImage(pGraph(3),pX(3),390,pFrame(3)+pDir(3))
+  DrawImage(pGraph(4),pX(4),390,pFrame(4)+pDir(4))
+  Flip 
+ Until segtim>600 ;enter
+ ;GAME gggggggggggggggggggggggggggg
+ stime=MilliSecs()  
+ timer=CreateTimer(frate)
+ StopChannel chTheme
+ Repeat 
+   frames=WaitTimer(timer)
+   For tcount=1 To frames
+	Cls
+	DrawImage(g_bg,400,300)
+	;TIME
+	ntime=MilliSecs()
+	time=(ntime-stime)/1000
+	;////////////////FIND GAME END///////////////
+	If time>60 Then time=60 : gameover=1
+	;If time=>60 And iScore(1)<iTScore(1) And iScore(2)<iTScore(2) And iScore(3)<iTScore(3)
+	 ;gameover=1
+	;EndIf
+	If time=>60 And iScore(1)=>iTScore(1) And iScore(2)=>iTScore(2) And iScore(3)=>iTScore(3)
+	 gameover=2
+	EndIf
+	If gameover>0
+	 For cyc=1 To 4
+	  pReady(cyc)=0
+	 Next 
+	 If gameover=1
+	  pFrame(1)=8
+	  pFrame(2)=0
+	  pFrame(3)=0
+	  pFrame(4)=0
+	  SetFont font2
+      Color 255,0,0
+      Text 400,300,"CVG is SCREWED!",1,1
+      SetFont font1
+	  Color 0,0,0
+	  Text 400,320,"Press ESC",1,1
+      If ended=0
+       PlaySound sLose
+       ended=1 
+      EndIf
+	 EndIf
+	 If gameover=2
+	  pFrame(1)=9
+	  pFrame(2)=5
+	  pFrame(3)=5
+	  pFrame(4)=5
+	  SetFont font2
+      Color 0,255,0
+      Text 400,300,"CVG is SAVED!",1,1
+      SetFont font1
+	  Color 0,0,0
+	  Text 400,320,"Press ESC",1,1
+      If ended=0
+       PlaySound sWin
+       ended=1 
+      EndIf 
+	 EndIf
+	EndIf
+	
+	;///////////// CONTROL LOOP ////////////////////
+	If gameover=0
+	;Find input
+	For cyc=1 To 4
+	 pLeft(cyc)=0
+	 pRight(cyc)=0
+	 pUp(cyc)=0
+	 pDown(cyc)=0
+	 pButtA(cyc)=0	
+	 ;Keyboard
+	 If pControl(cyc)=1
+	  If KeyDown(203) Then pLeft(cyc)=1
+	  If KeyDown(205) Then pRight(cyc)=1
+	  If KeyDown(208) Then pDown(cyc)=1
+      If KeyDown(57) Then pButtA(cyc)=1
+     EndIf
+     ;CPU
+	 If pControl(cyc)=0
+	  randy=Rnd(0,20)
+	  If randy=1
+	   pTX(cyc)=Rnd(level_left,level_right)
+	   pAtt(cyc)=Rnd(0,2)
+	  EndIf
+	  If pAtt(cyc)=0
+	   pFrame(cyc)=0	  
+	  EndIf
+	  If pAtt(cyc)=1
+	   If (pX(cyc)+ImageXHandle(pGraph(cyc)))>pTX(cyc) Then pLeft(cyc)=1
+	   If (pX(cyc)+ImageXHandle(pGraph(cyc)))<pTX(cyc) Then pRight(cyc)=1
+       If (pX(cyc)+ImageXHandle(pGraph(cyc)))>pTX(cyc)-10 And (pX(cyc)+ImageXHandle(pGraph(cyc)))<pTX(cyc)+10
+        pLeft(cyc)=0 : pRight(cyc)=0
+        pAtt(cyc)=0
+       EndIf
+      EndIf
+      If pAtt(cyc)=2
+       pButtA(cyc)=1
+       pAtt(cyc)=0
+	  EndIf     
+     EndIf
+    Next 
+    ;translate input
+	For cyc=1 To 4
+	 ;ready loop rrrrrrrrrrrrrrrrrrrrr
+	 If pReady(cyc)=1
+	  If pRight(cyc) Or pLeft(cyc) Or pDown(cyc) Or pUp(cyc)
+	   pDelay(cyc)=pDelay(cyc)+1
+	   If pDelay(cyc)>7
+ 		pStep(cyc)=pStep(cyc)+1
+		If pStep(cyc)>3 Then pStep(cyc)=0 
+		pFrame(cyc) = aWalk(pStep(cyc))
+		pDelay(cyc)=0
+	   EndIf	
+	  EndIf 
+	  ;Movement
+	  If pLeft(cyc)=1
+	   pDir(cyc)=pFlipper(cyc) 
+	   pX(cyc)=pX(cyc)-pSpeed(cyc)
+	  EndIf 
+	  If pRight(cyc)=1 
+	   pDir(cyc)=0 
+	   pX(cyc)=pX(cyc)+pSpeed(cyc)
+	  EndIf 
+	  ;Punch
+	  If pButtA(cyc)=1 Then pState(cyc)=10
+	 EndIf
+	 ;rrrrrrrrrrrrrrrrrrrrrrrrrrrr
+	 ;STATES sssssssssssssssssssss
+	 ;1 - Hurt
+	 If pState(cyc)=1
+	  pReady(cyc)=0
+	  pDelay(cyc)=pDelay(cyc)+1
+	  pFrame(cyc)=5
+	  pZ(cyc)=-1
+	  If pDelay(cyc)>20 
+	   pFrame(cyc)=0	   
+	  EndIf
+	  If pDelay(cyc)>28 
+	   pZ(cyc)=0
+	   pReady(cyc)=1
+	   pDelay(cyc)=0
+	   pState(cyc)=0	 
+	  EndIf	 
+	 EndIf
+	 ;10 - Punching
+	 If pState(cyc)=10
+	  pReady(cyc)=0
+	  pDelay(cyc)=pDelay(cyc)+1
+	  pFrame(cyc)=3
+	  If pDelay(cyc)>10 
+	   If pDelay(cyc)<15 
+	    If pDir(cyc)=0 Then pX(cyc)=pX(cyc)+1 Else pX(cyc)=pX(cyc)-1
+	   EndIf
+	   pFrame(cyc)=4
+	   pZ(cyc)=1
+	   For v=1 To 4
+	    ;facing someone?
+	    pFo(cyc)=0
+	    If pX(cyc)<pX(v) And pDir(cyc)=0
+	     pFo(cyc)=v
+	    EndIf 
+	    If pX(cyc)>pX(v) And pDir(cyc)=pFlipper(cyc)
+	     pFo(cyc)=v
+	    EndIf
+	    ;contact?
+	    If pX(cyc)<pX(v)+41 And pX(cyc)>pX(v)-41 And pFo(cyc)=v And v<>cyc And pOccupy(cyc)=0
+		 PlaySound pSHit(cyc)
+		 PlaySound pSPain(v)
+		 If pDir(cyc)=0 Then pX(v)=pX(v)+10
+		 If pDir(cyc)=pFlipper(cyc) Then pX(v)=pX(v)-10
+		 pOccupy(cyc)=1
+		 pState(v)=1
+		 If pControl(cyc)=0 And v=1 Then pHealth(v)=pHealth(v)-1
+		 If pControl(cyc)=1 Then pHealth(v)=pHealth(v)-1
+		EndIf	   
+	   Next 
+	  EndIf
+	  If pDelay(cyc)>25 
+	   pFrame(cyc)=0
+	   pZ(cyc)=-1
+	  EndIf
+	  If pDelay(cyc)>31 
+	   pReady(cyc)=1
+	   pDelay(cyc)=0
+	   pState(cyc)=0
+	   pOccupy(cyc)=0	 
+	  EndIf	 
+	 EndIf 
+	 ;ssssssssssssssssssssssssssssss
+	 ;value checks
+     If pX(cyc) < level_left Then pX(cyc) = level_left
+	 If pX(cyc) > level_right Then pX(cyc) = level_right
+	Next 
+	EndIf 	
+	
+	;///////////////// DISPLAY /////////////////////
+	For plane=-1 To 1
+	 For cyc=1 To 4
+	  If pZ(cyc)=plane Then DrawImage(pGraph(cyc),pX(cyc),pY(cyc),pFrame(cyc)+pDir(cyc))
+	 Next
+	Next 
+	;ITEM KNOCKERS
+	If pHealth(1)<1
+	 randy=Rnd(1,3)
+	 pHealth(1)=Rnd(3,6)
+	 If iScore(randy)>0 Then iState(randy)=1 Else iState(randy)=0
+	 If iScore(randy)>0 Then iScore(randy)=iScore(randy)-1	
+	 iX(randy)=pX(1)
+	 iY(randy)=pY(1)-30
+	 If pDir(1)=0 Then iDir(randy)=-2 Else iDir(randy)=2
+	 PlaySound pSLose(1)
+	EndIf 
+	If pHealth(2)<1
+	 pHealth(2)=Rnd(6,8)
+	 iState(1)=1
+	 iScore(1)=iScore(1)+1	
+	 iX(1)=pX(2)
+	 iY(1)=pY(2)-30
+	 If pDir(2)=0 Then iDir(1)=-2 Else iDir(1)=2
+	 PlaySound pSLose(2)	
+	EndIf
+	If pHealth(3)<1
+	 pHealth(3)=Rnd(6,8)
+	 iState(2)=1
+	 iScore(2)=iScore(2)+1	
+	 iX(2)=pX(3)
+	 iY(2)=pY(3)-30
+	 If pDir(3)=0 Then iDir(2)=-2 Else iDir(2)=2
+	 PlaySound pSLose(3)	
+	EndIf
+	If pHealth(4)<1
+	 pHealth(4)=Rnd(6,8)
+	 iState(3)=1
+	 iScore(3)=iScore(3)+1	
+	 iX(3)=pX(4)
+	 iY(3)=pY(4)
+	 If pDir(4)=0 Then iDir(3)=-2 Else iDir(3)=2
+	 PlaySound pSLose(4)
+	EndIf 
+	For cyc=1 To 3
+	 If iState(cyc)=1
+	  iX(cyc)=iX(cyc)+iDir(cyc)
+	  iY(cyc)=iY(cyc)-5
+	  If iY(cyc)<280 Then iState(cyc)=2
+	 EndIf
+	 If iState(cyc)=2
+	  iX(cyc)=iX(cyc)+iDir(cyc)
+	  iY(cyc)=iY(cyc)+4
+	  If iY(cyc)>450 Then iState(cyc)=0
+	 EndIf
+	 If iState(cyc)>0 Then DrawImage(g_items,iX(cyc),iY(cyc),iGraph(cyc)) 
+	Next 
+	;COLOURS
+	If KeyDown(29)
+	 For cnt=1 To 20  
+	  Color Rnd(100,255),Rnd(0,255),0 
+	  Oval pX(1),pY(1),5,5,0	 
+	 Next	
+	EndIf
+	If KeyDown(2)
+	 For cyc=1 To 4
+	   pTX(cyc)=Rnd(level_left,level_right)
+	   pAtt(cyc)=Rnd(0,2)
+	 Next
+	EndIf
+  Next
+	;icons
+	DrawImage(g_icon1,100,560)
+	DrawImage(g_icon2,300,560)
+	DrawImage(g_icon3,500,560)
+	DrawImage(g_icon4,700,560)
+	;TEXT
+	SetFont font2
+	If iScore(1)<iTScore(1) Then Color 255,255,0 Else Color 0,225,0 
+	Text 310,550,iScore(1),1,1
+	If iScore(2)<iTScore(2) Then Color 255,255,0 Else Color 0,225,0 
+	Text 510,550,iScore(2),1,1
+	If iScore(3)<iTScore(3) Then Color 255,255,0 Else Color 0,225,0 
+	Text 710,550,iScore(3),1,1
+	SetFont font1
+	Color 0,0,0
+	Text 330,550,iTScore(1),1,1
+	Text 530,550,iTScore(2),1,1
+	Text 730,550,iTScore(3),1,1
+	SetFont font2
+	If time<30 Then Color 0,225,0
+	If time=>30 Then Color 255,255,0
+	If time=>50 Then Color 255,0,0
+	;Color 15+(time*4),255-(time*4),0
+	Text 101,551,60-time,1,1
+	
+	Flip	
+ Until KeyDown(1) ;esc
+ Titles()
+End Function
+	
+;FUNCTIONS fffffffffffffffffffffffffffffffffffffffffffffffffff
+;Function
+;End Function
+	

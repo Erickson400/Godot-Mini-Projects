@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://baieqgag84ca6"]
+
+[ext_resource type="FontFile" uid="uid://bayew0ra0unuc" path="res://misc/Helvetica CE Bold.otf" id="1_rq72m"]
+
+[resource]
+font = ExtResource("1_rq72m")
+font_size = 15
+font_color = Color(0, 0, 0, 1)

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://mv5u6fiaxiua"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_f7oi7"]
+[ext_resource type="PackedScene" uid="uid://cys88xhnqgnym" path="res://entities/rail.tscn" id="2_3tybu"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_f7oi7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Rail" parent="." node_paths=PackedStringArray("light_source") instance=ExtResource("2_3tybu")]
+position = Vector2(-576, 0)
+light_source = NodePath("../Light")
+
+[node name="Light" type="Marker2D" parent="."]
+position = Vector2(-761, 0)

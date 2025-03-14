@@ -1,0 +1,10 @@
+ColorRect
+Node3D
+Camera3D
+SubViewport
+MeshInstance3D
+Camera2D
+SubViewportContainer
+Sprite2D
+BackBufferCopy
+Node

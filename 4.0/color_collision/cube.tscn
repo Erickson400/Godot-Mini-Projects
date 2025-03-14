@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmktd2yfw1gxj"]
+
+[ext_resource type="Texture2D" uid="uid://bm2tyiu3spu1b" path="res://icon.svg" id="1_krupm"]
+[ext_resource type="Script" path="res://cube.gd" id="2_21w47"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_klk1c"]
+albedo_texture = ExtResource("1_krupm")
+uv1_scale = Vector3(7.575, 7.575, 7.575)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7rvbo"]
+
+[node name="Cube1" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07975, 0, -1.1055)
+material_override = SubResource("StandardMaterial3D_klk1c")
+mesh = SubResource("BoxMesh_7rvbo")
+script = ExtResource("2_21w47")

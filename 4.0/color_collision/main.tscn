@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://diff0xuaikog8"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_hjvt4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vrnh7"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_wjkwq"]
+sky_material = SubResource("ProceduralSkyMaterial_vrnh7")
+
+[sub_resource type="Environment" id="Environment_kdms7"]
+background_mode = 2
+sky = SubResource("Sky_wjkwq")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main" type="Node"]
+script = ExtResource("1_hjvt4")
+
+[node name="Result" type="ColorRect" parent="."]
+offset_left = 110.0
+offset_top = 92.0
+offset_right = 260.0
+offset_bottom = 242.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kdms7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.576917, -0.385189, 0.720275, -3.53454e-08, 0.881823, 0.471581, -0.816803, -0.272063, 0.508738, 4.92648, 7.53702, 5.13211)
+cull_mask = 1048573
+current = true
+
+[node name="Cubes" type="Node3D" parent="."]
+
+[node name="Sub" type="SubViewport" parent="."]
+own_world_3d = true
+transparent_bg = true
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Sub"]
+cull_mask = 1048574
+current = true
+
+[node name="Cubes" type="Node3D" parent="Sub"]

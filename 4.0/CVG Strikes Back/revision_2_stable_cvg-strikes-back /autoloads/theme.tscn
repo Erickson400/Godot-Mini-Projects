@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8dw8h017lw2x"]
+
+[ext_resource type="AudioStream" uid="uid://c5u8met2vvp0q" path="res://sfx/theme.wav" id="1_sndjx"]
+[ext_resource type="Script" path="res://autoloads/theme.gd" id="2_riwiw"]
+
+[node name="Theme" type="AudioStreamPlayer"]
+stream = ExtResource("1_sndjx")
+script = ExtResource("2_riwiw")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

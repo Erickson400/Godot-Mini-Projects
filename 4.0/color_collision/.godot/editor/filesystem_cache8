@@ -1,0 +1,10 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1732924300
+color.tres::VisualShader::5179360664631450098::1724155083::0::1::::<><>::
+color_database.gd::GDScript::-1::1724381814::0::1::::<>Node<>::
+cube.gd::GDScript::-1::1724156088::0::1::::<>MeshInstance3D<>::
+cube.tscn::PackedScene::8023332387983933055::1721590318::0::1::::<><>::uid://bm2tyiu3spu1b::::res://icon.svg<>res://cube.gd
+icon.svg::CompressedTexture2D::3285621941005132893::1721508577::1721577502::1::::<><>::
+main.gd::GDScript::-1::1724156341::0::1::::<>Node<>::
+main.tscn::PackedScene::7731444157709557621::1724156775::0::1::::<><>::res://main.gd
+material.tres::ShaderMaterial::9174227550565305786::1724155083::0::1::::<><>::uid://cf16kwlfa0jt7::::res://color.tres

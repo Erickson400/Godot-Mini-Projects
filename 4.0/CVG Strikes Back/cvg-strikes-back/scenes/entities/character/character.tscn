@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c36bn18ql66vu"]
+
+[ext_resource type="SpriteFrames" uid="uid://dx2rlimim06ma" path="res://scenes/entities/character/character.tres" id="1_wfj8t"]
+[ext_resource type="Script" path="res://scenes/entities/character/character.gd" id="2_015nb"]
+
+[node name="Character" type="AnimatedSprite2D" groups=["character"]]
+sprite_frames = ExtResource("1_wfj8t")
+animation = &"dom"
+script = ExtResource("2_015nb")
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+
+[node name="Pain" type="AudioStreamPlayer" parent="."]
+
+[node name="Lose" type="AudioStreamPlayer" parent="."]

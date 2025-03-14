@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://boqly5kw5lxdd"]
+
+[ext_resource type="Texture2D" uid="uid://bquhd2pg0wp8d" path="res://gfx/cvglogo.png" id="1_5fdfi"]
+[ext_resource type="Script" path="res://scenes/title/title.gd" id="1_xbbgh"]
+[ext_resource type="Texture2D" uid="uid://nwwnfu5oxvps" path="res://gfx/logo.png" id="2_4x2j0"]
+[ext_resource type="LabelSettings" uid="uid://bx7rvqrs2rmqf" path="res://misc/font2.tres" id="5_4ap1r"]
+[ext_resource type="FontFile" uid="uid://bayew0ra0unuc" path="res://misc/Helvetica CE Bold.otf" id="6_b2ayr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cm4yr"]
+font = ExtResource("6_b2ayr")
+font_size = 15
+font_color = Color(0.215686, 0.215686, 0.215686, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uefc2"]
+font = ExtResource("6_b2ayr")
+font_size = 15
+font_color = Color(0.215686, 0.215686, 0.215686, 1)
+
+[node name="Title" type="Node2D"]
+script = ExtResource("1_xbbgh")
+
+[node name="CvgLogo" type="Sprite2D" parent="."]
+position = Vector2(400, 300)
+texture = ExtResource("1_5fdfi")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(400, 100)
+texture = ExtResource("2_4x2j0")
+
+[node name="Enter" type="Label" parent="."]
+offset_left = 303.0
+offset_top = 443.0
+offset_right = 498.0
+offset_bottom = 477.0
+text = "Press Enter"
+label_settings = ExtResource("5_4ap1r")
+
+[node name="Warn1" type="Label" parent="."]
+offset_left = 174.0
+offset_top = 563.0
+offset_right = 626.0
+offset_bottom = 578.0
+text = "The characters and events portrayed in this game are fictitious."
+label_settings = SubResource("LabelSettings_cm4yr")
+
+[node name="Warn2" type="Label" parent="."]
+offset_left = 217.0
+offset_top = 579.0
+offset_right = 583.0
+offset_bottom = 594.0
+text = "Any similarities to real life are purely coincidental..."
+label_settings = SubResource("LabelSettings_uefc2")
