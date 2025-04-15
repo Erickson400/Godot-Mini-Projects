@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cp8ywxg3sglla"]
+
+[ext_resource type="Script" uid="uid://drsndek0v7m2s" path="res://entities/machine/token.gd" id="1_x2p4n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e58rl"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dljn3"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40lik"]
+resource_local_to_scene = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_exnqn"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[node name="Token" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 28
+script = ExtResource("1_x2p4n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_e58rl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_dljn3")
+surface_material_override/0 = SubResource("StandardMaterial3D_40lik")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 208
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_exnqn")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

@@ -1,0 +1,588 @@
+[gd_scene load_steps=36 format=3 uid="uid://d1b8tybx15t5p"]
+
+[ext_resource type="Script" path="res://scenes/scene1/scene1.gd" id="1_2uh40"]
+[ext_resource type="Shader" uid="uid://byiqrleqfxdjx" path="res://scenes/scene1/ground.tres" id="1_ymm21"]
+[ext_resource type="PackedScene" uid="uid://m7xrwt45ycxi" path="res://entities/shadow.tscn" id="2_pp541"]
+[ext_resource type="PackedScene" uid="uid://wwpjkrxhwfpp" path="res://entities/moon/moon.tscn" id="3_0m5t2"]
+[ext_resource type="Script" path="res://scripts/camera_shake.gd" id="4_egoue"]
+[ext_resource type="AudioStream" uid="uid://dmb8cjfsl5p20" path="res://scenes/scene1/fear.ogg" id="5_8cyar"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hv1gn"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_fjpis"]
+sky_material = SubResource("ProceduralSkyMaterial_hv1gn")
+
+[sub_resource type="Environment" id="Environment_l850q"]
+background_mode = 1
+sky = SubResource("Sky_fjpis")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_deu3i"]
+render_priority = 0
+shader = ExtResource("1_ymm21")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pulvq"]
+material = SubResource("ShaderMaterial_deu3i")
+size = Vector2(200, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rpv1w"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_2qehq"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_rpv1w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njanp"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_rwaup"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_njanp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qndn5"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mc52m"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_qndn5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slump"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_exs2u"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_slump")
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ngm8f"]
+animation = &"Cut1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_us4r3"]
+animation = &"Cut2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q7sgm"]
+animation = &"Cut3"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xk5dr"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bjnlj"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s07tp"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jacc6"]
+states/Cut1/node = SubResource("AnimationNodeAnimation_ngm8f")
+states/Cut1/position = Vector2(310, 105)
+states/Cut2/node = SubResource("AnimationNodeAnimation_us4r3")
+states/Cut2/position = Vector2(467, 105)
+states/Cut3/node = SubResource("AnimationNodeAnimation_q7sgm")
+states/Cut3/position = Vector2(629, 105)
+states/Start/position = Vector2(174, 105)
+transitions = ["Cut1", "Cut2", SubResource("AnimationNodeStateMachineTransition_xk5dr"), "Start", "Cut1", SubResource("AnimationNodeStateMachineTransition_bjnlj"), "Cut2", "Cut3", SubResource("AnimationNodeStateMachineTransition_s07tp")]
+graph_offset = Vector2(-146, 5)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_lxj72"]
+
+[sub_resource type="Animation" id="Animation_tcgto"]
+resource_name = "Cut1"
+length = 30.0
+step = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FromMoon/PathFollow3D/CameraCut1:fov")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 22.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [10.0, 40.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FromMoon/PathFollow3D:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 22.8, 30),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.3, 0.99, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cut2Path/PathFollow3D/CameraCut2:current")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FromMoon/PathFollow3D/CameraCut1:current")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Moon/Out:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.533, 1.533, 1.533)]
+}
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 103.2,
+"stream": ExtResource("5_8cyar")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/5/use_blend = true
+
+[sub_resource type="Animation" id="Animation_0rsgg"]
+resource_name = "Cut2"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cut2Path/PathFollow3D/CameraCut2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20, 35.8, 40),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -2.94437, 0), Vector3(0, -0.966912, 0), Vector3(0, -0.966912, 0), Vector3(0, -1.05493, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cut2Path/PathFollow3D:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Red:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 14.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Red/Booty/TorsoPivot/Torso/Head:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 24.2, 28.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.248431, -2.24882e-09, -1.01978e-08), Vector3(-0.248431, -2.24882e-09, -1.01978e-08), Vector3(0.034321, -1.0051, -0.0546224)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Blue/Booty/TorsoPivot/Torso/Head:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 33.8, 34.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.248431, -2.24882e-09, -1.01978e-08), Vector3(-0.248431, -2.24882e-09, -1.01978e-08), Vector3(0.00553213, -2.17982e-09, -1.07628e-08)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cut2Path/PathFollow3D/CameraCut2:current")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 40),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cut3Path/PathFollow3D/CameraCut3:current")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 16.8, 40),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cut2Path/PathFollow3D/CameraCut2:fov")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 35.8, 40),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [40.0, 40.0, 30.0]
+}
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 10.8118,
+"start_offset": 140.102,
+"stream": ExtResource("5_8cyar")
+}],
+"times": PackedFloat32Array(10.2)
+}
+tracks/8/use_blend = false
+tracks/9/type = "audio"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AudioStreamPlayer")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"clips": [{
+"end_offset": 68.74,
+"start_offset": 133.2,
+"stream": ExtResource("5_8cyar")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/9/use_blend = false
+
+[sub_resource type="Animation" id="Animation_03kum"]
+resource_name = "Cut3"
+length = 40.0
+step = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cut3Path/PathFollow3D:progress_ratio")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cut3Path/PathFollow3D/CameraCut3:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 18),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.5708, 3.14159, 0), Vector3(0.261799, 3.14159, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Moon/Out:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 21.2, 28.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.533, 1.533, 1.533), Vector3(1.533, 1.533, 1.533), Vector3(10, 10, 10)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Ground:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 18.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Moon/In:mesh:material:shader_parameter/FloatParameter")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 23.6, 28.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.2, 0.2, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_lk50d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Moon/Out:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.533, 1.533, 1.533)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cut2Path/PathFollow3D/CameraCut2:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [40.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cut2Path/PathFollow3D/CameraCut2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.05493, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Moon/In:mesh:material:shader_parameter/FloatParameter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tat6x"]
+_data = {
+"Cut1": SubResource("Animation_tcgto"),
+"Cut2": SubResource("Animation_0rsgg"),
+"Cut3": SubResource("Animation_03kum"),
+"RESET": SubResource("Animation_lk50d")
+}
+
+[sub_resource type="Curve3D" id="Curve3D_wwbch"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.34643, 56.8273, 106.066, 0, 0, 0, 0, 0, 0, -0.809452, 0.320074, -2.03211),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_ptkyx"]
+bake_interval = 10.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.976977, 1.59998, -3.40189, 0, 0, 0, 0, 0, 0, -2.53516, 1.62903, -2.13099, 0, 0, 0, 0, 0, 0, -2.52421, 1.62866, 0.114675, 0, 0, 0, 0, 0, 0, -0.885, 1.629, 1.465),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_2p10t"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.9, 0.7, 30, 0, 0, 0, 0, 0, 0, 0.9, 0.7, -20),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="Scene1" type="Node3D"]
+script = ExtResource("1_2uh40")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l850q")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_pulvq")
+
+[node name="Blue" parent="." instance=ExtResource("2_pp541")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.522212, 0)
+
+[node name="Head" parent="Blue/Booty/TorsoPivot/Torso" index="0"]
+transform = Transform3D(1.33027, 1.24136e-08, -2.89971e-09, -1.43172e-08, 1.15465, -0.00735919, 2.82054e-09, 0.00638775, 1.33025, 0, 1.026, 3.57628e-07)
+
+[node name="Eye1" parent="Blue/Booty/TorsoPivot/Torso/Head" index="0"]
+mesh = SubResource("SphereMesh_2qehq")
+
+[node name="Eye2" parent="Blue/Booty/TorsoPivot/Torso/Head" index="1"]
+mesh = SubResource("SphereMesh_rwaup")
+
+[node name="Red" parent="." instance=ExtResource("2_pp541")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.82062, 0.522212, 0)
+
+[node name="Head" parent="Red/Booty/TorsoPivot/Torso" index="0"]
+transform = Transform3D(0.71407, 0.00039008, -1.12237, -0.0725837, 1.15227, -0.0456472, 1.12002, 0.0744246, 0.71261, 0, 1.026, 3.57628e-07)
+
+[node name="Eye1" parent="Red/Booty/TorsoPivot/Torso/Head" index="0"]
+mesh = SubResource("SphereMesh_mc52m")
+
+[node name="Eye2" parent="Red/Booty/TorsoPivot/Torso/Head" index="1"]
+mesh = SubResource("SphereMesh_exs2u")
+
+[node name="Moon" parent="." instance=ExtResource("3_0m5t2")]
+transform = Transform3D(26.4592, 0, 0, 0, 26.4592, 0, 0, 0, 26.4592, 0.34643, 56.8273, 106.066)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_jacc6")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+process_callback = 2
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_lxj72")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tat6x")
+}
+
+[node name="MarkerFIRST" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.822621, 0.568591, 0, -0.568591, 0.822621, 0.34643, 56.8273, 106.066)
+
+[node name="MarkerSECOND" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.822621, 0.568591, 0, -0.568591, 0.822621, -0.809452, 0.320074, -2.03211)
+
+[node name="MarkerTHIRD" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.822621, 0.568591, 0, -0.568591, 0.822621, 0, 0, 0)
+
+[node name="FromMoon" type="Path3D" parent="."]
+curve = SubResource("Curve3D_wwbch")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="FromMoon"]
+transform = Transform3D(-0.999943, -0.00495162, -0.00947586, 1.33971e-06, 0.886231, -0.463242, 0.0106916, -0.463216, -0.886181, -0.000334888, 39.8751, 73.6365)
+progress = 36.5946
+tilt_enabled = false
+
+[node name="CameraCut1" type="Camera3D" parent="FromMoon/PathFollow3D"]
+current = true
+fov = 10.0
+script = ExtResource("4_egoue")
+
+[node name="Cut2Path" type="Path3D" parent="."]
+curve = SubResource("Curve3D_ptkyx")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Cut2Path"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.885, 1.629, 1.465)
+progress = 6.38042
+rotation_mode = 0
+
+[node name="CameraCut2" type="Camera3D" parent="Cut2Path/PathFollow3D"]
+transform = Transform3D(0.493289, 0, -0.869866, 0, 1, 0, 0.869866, 0, 0.493289, 0, 0, 0)
+fov = 40.0
+script = ExtResource("4_egoue")
+
+[node name="Cut3Path" type="Path3D" parent="."]
+curve = SubResource("Curve3D_2p10t")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Cut3Path"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.7, 30)
+rotation_mode = 0
+
+[node name="CameraCut3" type="Camera3D" parent="Cut3Path/PathFollow3D"]
+transform = Transform3D(-1, -2.53518e-06, -9.17733e-12, 0, -3.61999e-06, 1, -2.53518e-06, 1, 3.61999e-06, 0, 0, 0)
+fov = 40.0
+script = ExtResource("4_egoue")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[editable path="Blue"]
+[editable path="Red"]
+[editable path="Moon"]

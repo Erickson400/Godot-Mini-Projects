@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://doft3ir3cxmg2"]
+
+[ext_resource type="Script" uid="uid://dct78ugv3im5x" path="res://entities/pads/green_pad.gd" id="1_4mkwu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2rud"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lyf0u"]
+material = SubResource("StandardMaterial3D_f2rud")
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ghrdm"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_clsjs"]
+size = Vector3(1, 0.1, 1)
+
+[node name="GreenPad" type="StaticBody3D"]
+script = ExtResource("1_4mkwu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_lyf0u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ghrdm")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_clsjs")
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqe0pwninkfkv"]
+
+[ext_resource type="Texture2D" uid="uid://c6unx3mtiksh1" path="res://entities/patch/patch_dev.png" id="1_kco05"]
+[ext_resource type="Script" uid="uid://cuxw1cbisiqeq" path="res://entities/patch/patch.gd" id="1_qxd6x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eqflw"]
+resource_local_to_scene = true
+cull_mode = 2
+albedo_texture = ExtResource("1_kco05")
+
+[node name="Patch" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_eqflw")
+script = ExtResource("1_qxd6x")

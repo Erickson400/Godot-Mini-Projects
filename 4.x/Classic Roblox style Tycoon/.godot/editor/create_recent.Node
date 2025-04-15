@@ -1,0 +1,16 @@
+Node
+MeshInstance3D
+CollisionShape3D
+Area3D
+Node3D
+Label3D
+StaticBody3D
+Label
+Control
+CSGCombiner3D
+CSGMesh3D
+Timer
+RigidBody3D
+DirectionalLight3D
+Camera3D
+CharacterBody3D

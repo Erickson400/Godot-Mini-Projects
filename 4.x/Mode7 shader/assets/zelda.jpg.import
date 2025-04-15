@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://dci5q6y7v13m1"
+path="res://.godot/imported/zelda.jpg-0b6407df345d2753f0777a49f70dbfe9.image"
+
+[deps]
+
+source_file="res://assets/zelda.jpg"
+dest_files=["res://.godot/imported/zelda.jpg-0b6407df345d2753f0777a49f70dbfe9.image"]
+
+[params]
+

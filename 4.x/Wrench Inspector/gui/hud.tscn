@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3ja5u06wk0d7"]
+
+[sub_resource type="Theme" id="Theme_pih3c"]
+default_font_size = 50
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -184.0
+offset_right = 281.0
+offset_bottom = 184.0
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+text = "The Industrial Revolution, also known as the First Industrial Revolution, was a period of global transition of human economy towards more efficient and stable manufacturing processes that succeeded the Agricultural Revolution, starting from Great Britain, continental Europe, and the United States, that occurred during the period from around 1760 to about 1820–1840.[1] This transition included going from hand production methods to machines; new chemical manufacturing and iron production processes; the increasing use of water power and steam power; the development of machine tools; and the rise of the mechanized factory system. Output greatly increased, and a result was an unprecedented rise in population and in the rate of population growth. The textile industry was the first to use modern production methods,[2]: 40  and textiles became the dominant industry in terms of employment, value of output, and capital invested.
+
+On a structural level the Industrial Revolution asked society the so-called social question, demanding new ideas for managing large groups of individuals. Visible poverty on one hand and growing population and materialistic wealth on the other caused tensions between the very rich and the poorest people within society.[3] These tensions were sometimes violently released[4] and led to philosophical ideas such as socialism, communism and anarchism. "
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -158.0
+offset_right = 158.0
+offset_bottom = 72.0
+grow_horizontal = 2
+theme = SubResource("Theme_pih3c")
+text = "Pipe Wrench"

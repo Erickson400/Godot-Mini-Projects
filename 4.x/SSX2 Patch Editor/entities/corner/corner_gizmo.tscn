@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://ntx1jk237vrk"]
+
+[ext_resource type="Script" uid="uid://me5yan5ylb01" path="res://entities/corner/corner_gizmo.gd" id="1_olati"]
+[ext_resource type="PackedScene" uid="uid://u3ps4c0pesbx" path="res://entities/bubble/bubble.tscn" id="2_ieenq"]
+[ext_resource type="Script" uid="uid://j6flv1i7rymo" path="res://entities/components/transform/corner_transform_component.gd" id="3_bglgs"]
+[ext_resource type="Script" uid="uid://dg6fsjhdj4tpq" path="res://entities/components/transform/handle_transform_component.gd" id="4_5bsho"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqexj"]
+no_depth_test = true
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[node name="CornerGizmo" type="Node3D" groups=["corner_gizmo"]]
+script = ExtResource("1_olati")
+
+[node name="Lines" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_aqexj")
+
+[node name="Center" parent="." instance=ExtResource("2_ieenq")]
+
+[node name="TransformComponent" type="Node3D" parent="Center"]
+script = ExtResource("3_bglgs")
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Center"]
+remote_path = NodePath("../../Handles")
+update_rotation = false
+update_scale = false
+
+[node name="Handles" type="Node3D" parent="."]
+
+[node name="-X" parent="Handles" instance=ExtResource("2_ieenq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="TransformComponent" type="Node3D" parent="Handles/-X" node_paths=PackedStringArray("opposite_handle")]
+script = ExtResource("4_5bsho")
+opposite_handle = NodePath("../../+X")
+
+[node name="+X" parent="Handles" instance=ExtResource("2_ieenq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="TransformComponent" type="Node3D" parent="Handles/+X" node_paths=PackedStringArray("opposite_handle")]
+script = ExtResource("4_5bsho")
+opposite_handle = NodePath("../../-X")
+
+[node name="-Z" parent="Handles" instance=ExtResource("2_ieenq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="TransformComponent" type="Node3D" parent="Handles/-Z" node_paths=PackedStringArray("opposite_handle")]
+script = ExtResource("4_5bsho")
+opposite_handle = NodePath("../../+Z")
+
+[node name="+Z" parent="Handles" instance=ExtResource("2_ieenq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="TransformComponent" type="Node3D" parent="Handles/+Z" node_paths=PackedStringArray("opposite_handle")]
+script = ExtResource("4_5bsho")
+opposite_handle = NodePath("../../-Z")

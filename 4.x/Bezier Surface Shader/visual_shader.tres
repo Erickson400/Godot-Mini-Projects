@@ -1,0 +1,108 @@
+[gd_resource type="VisualShader" load_steps=10 format=3 uid="uid://c5goggfad1goh"]
+
+[ext_resource type="Texture2D" uid="uid://c3sw488siyiwr" path="res://icon.png" id="1"]
+
+[sub_resource type="VisualShaderNodeTexture" id="1"]
+texture = ExtResource("1")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeInput" id="2"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="3"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(4, 4, 0)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="13"]
+
+[sub_resource type="VisualShaderNodeVec3Parameter" id="14"]
+parameter_name = "sus"
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="10"]
+default_input_values = [0, 0.0, 1, 2.0, 2, 0.0]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="11"]
+
+[sub_resource type="VisualShaderNodeInput" id="12"]
+input_name = "vertex"
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx;
+
+uniform vec3 sus;
+uniform sampler2D tex_frg_2 : source_color;
+
+
+
+void vertex() {
+// Vector3Parameter:11
+	vec3 n_out11p0 = sus;
+
+
+// VectorDecompose:10
+	float n_out10p0 = n_out11p0.x;
+	float n_out10p1 = n_out11p0.y;
+	float n_out10p2 = n_out11p0.z;
+
+
+// VectorCompose:4
+	float n_in4p0 = 0.00000;
+	float n_in4p2 = 0.00000;
+	vec3 n_out4p0 = vec3(n_in4p0, n_out10p1, n_in4p2);
+
+
+// Input:6
+	vec3 n_out6p0 = VERTEX;
+
+
+// VectorOp:5
+	vec3 n_out5p0 = n_out4p0 + n_out6p0;
+
+
+// Output:0
+	VERTEX = n_out5p0;
+
+
+}
+
+void fragment() {
+// Input:3
+	vec2 n_out3p0 = UV;
+
+
+// VectorOp:5
+	vec3 n_in5p1 = vec3(4.00000, 4.00000, 0.00000);
+	vec3 n_out5p0 = vec3(n_out3p0, 0.0) * n_in5p1;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, vec2(n_out5p0.xy));
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+
+
+}
+"
+modes/cull = 2
+nodes/vertex/0/position = Vector2(400, 140)
+nodes/vertex/4/node = SubResource("10")
+nodes/vertex/4/position = Vector2(-160, 160)
+nodes/vertex/5/node = SubResource("11")
+nodes/vertex/5/position = Vector2(60, 220)
+nodes/vertex/6/node = SubResource("12")
+nodes/vertex/6/position = Vector2(-160, 340)
+nodes/vertex/10/node = SubResource("13")
+nodes/vertex/10/position = Vector2(-540, 220)
+nodes/vertex/11/node = SubResource("14")
+nodes/vertex/11/position = Vector2(-860, 220)
+nodes/vertex/connections = PackedInt32Array(4, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 0, 10, 1, 4, 1, 11, 0, 10, 0)
+nodes/fragment/2/node = SubResource("1")
+nodes/fragment/2/position = Vector2(200, 140)
+nodes/fragment/3/node = SubResource("2")
+nodes/fragment/3/position = Vector2(-200, 260)
+nodes/fragment/5/node = SubResource("3")
+nodes/fragment/5/position = Vector2(0, 240)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 5, 0, 5, 0, 2, 0)

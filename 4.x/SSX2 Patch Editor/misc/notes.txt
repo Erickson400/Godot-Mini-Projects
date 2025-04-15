@@ -1,0 +1,17 @@
+Todo:
+-Rename CameraPivot to MainCamera and make it a Node. Have get_pivot() and get_camera()
+-Add a distance from camera plane function to the camera autoload
+-Make a bubble database where it stores, spawns, deletes, and click detect bubbles.
+-Rewrite Bubble manager so a function can be called to get the bubble on top of the mouse.
+-Review the transform system and see if it can be improved in readability and complexity
+-Create Rotation and scaling for the transformer
+-Create transforming for the corners
+-Add handle lines. Maybe put it on the BubbleManager
+
+-Finish transformer component for handles
+
+
+
+
+
+-Note that handle transformer component code is messy, clean up afterwards.

@@ -1,0 +1,264 @@
+[gd_scene load_steps=20 format=3 uid="uid://bgapnsrj6xsp"]
+
+[ext_resource type="Script" uid="uid://kkxdrlkr647t" path="res://entities/machine/belt.gd" id="1_m7peg"]
+[ext_resource type="PackedScene" uid="uid://b4g73awo7ggtb" path="res://entities/machine/dispensor.tscn" id="2_yh4v3"]
+[ext_resource type="PackedScene" uid="uid://doft3ir3cxmg2" path="res://entities/pads/green_pad.tscn" id="3_3ucj5"]
+[ext_resource type="PackedScene" uid="uid://d24ll7ifi2alf" path="res://entities/pads/red_pad.tscn" id="5_pjjjd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aatsh"]
+size = Vector3(4, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aqvw8"]
+size = Vector3(3.6, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cchvb"]
+transparency = 1
+albedo_color = Color(0, 0, 1, 0.305882)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v6mtk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ku583"]
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v6f2a"]
+albedo_color = Color(0.560784, 0.560784, 0.560784, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8xr1q"]
+material = SubResource("StandardMaterial3D_v6f2a")
+size = Vector3(1, 0.3, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bbf7j"]
+size = Vector3(1, 0.3, 0.6)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aajxa"]
+friction = 0.0
+rough = true
+bounce = 0.74
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avfxa"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ta3fr"]
+material = SubResource("StandardMaterial3D_avfxa")
+size = Vector3(3, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qxdf1"]
+size = Vector3(3, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2jddt"]
+size = Vector3(0.05, 0.8, 0.9)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fr5e2"]
+transparency = 3
+alpha_hash_scale = 0.75
+alpha_antialiasing_mode = 0
+albedo_color = Color(1, 0, 0, 0.466667)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cnpmp"]
+material = SubResource("StandardMaterial3D_fr5e2")
+size = Vector3(0.05, 0.8, 0.9)
+
+[node name="Machine" type="Node3D"]
+
+[node name="PlayerBoundary" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBoundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0)
+shape = SubResource("BoxShape3D_aatsh")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PlayerBoundary"]
+transform = Transform3D(-4.37114e-08, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, -4.37114e-08, 2, 0.5, -1.3)
+shape = SubResource("BoxShape3D_aqvw8")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="PlayerBoundary"]
+material_override = SubResource("StandardMaterial3D_cchvb")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="PlayerBoundary/CSGCombiner3D"]
+transform = Transform3D(4, 0, 0, 0, 0.9, 0, 0, 0, 1, 0.5, 0.5, 0)
+mesh = SubResource("BoxMesh_v6mtk")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="PlayerBoundary/CSGCombiner3D"]
+transform = Transform3D(-1.57361e-07, 3.93403e-08, 1, -1.57361e-07, 0.9, -4.37114e-08, -3.6, -3.93403e-08, -4.37114e-08, 2, 0.5, -1.3)
+mesh = SubResource("BoxMesh_v6mtk")
+
+[node name="TokenBoundary" type="StaticBody3D" parent="."]
+collision_layer = 8
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TokenBoundary"]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0.5, 0, 0.5)
+shape = SubResource("BoxShape3D_ku583")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="TokenBoundary"]
+transform = Transform3D(0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 0.5, 0.9, -1.5)
+shape = SubResource("BoxShape3D_ku583")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="TokenBoundary"]
+transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, 0.15, 0, -0.15, -6.55671e-09, 0, 0, -0.5)
+shape = SubResource("BoxShape3D_ku583")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="TokenBoundary"]
+transform = Transform3D(-7.86805e-09, -0.18, -7.86805e-09, 0, -7.86805e-09, 0.18, -0.18, 7.86805e-09, 3.43923e-16, 2.5, 0, -1.3)
+shape = SubResource("BoxShape3D_ku583")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="TokenBoundary"]
+transform = Transform3D(9.81473e-09, 0.13, 5.68248e-09, 0, -5.68248e-09, 0.13, 0.13, -9.81473e-09, -4.29015e-16, 1.5, 0, -1.8)
+shape = SubResource("BoxShape3D_ku583")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="TokenBoundary"]
+transform = Transform3D(7.54979e-09, 0.1, 4.37114e-09, 0, -4.37114e-09, 0.1, 0.1, -7.54979e-09, -3.30012e-16, -1.5, 0, 3.57628e-07)
+shape = SubResource("BoxShape3D_ku583")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="TokenBoundary"]
+transform = Transform3D(-0.1, 3.17865e-09, 1.38943e-16, 0, -4.37114e-09, 0.1, 3.17865e-09, 0.1, 4.37114e-09, 2, 0, -3.1)
+shape = SubResource("BoxShape3D_ku583")
+
+[node name="Seller" type="Area3D" parent="." groups=["seller"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.2, -2.8)
+collision_layer = 64
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Seller"]
+mesh = SubResource("BoxMesh_8xr1q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.182522, 0)
+shape = SubResource("BoxShape3D_bbf7j")
+
+[node name="GreenPad" parent="." instance=ExtResource("3_3ucj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3, 0, 0)
+
+[node name="Dsipensors" type="Node3D" parent="."]
+
+[node name="Dispensor2" parent="Dsipensors" instance=ExtResource("2_yh4v3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 0.8, 0.3)
+automatic = false
+
+[node name="Dispensor" parent="Dsipensors" instance=ExtResource("2_yh4v3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 0.8, 0.1)
+visible = false
+
+[node name="Dispensor3" parent="Dsipensors" instance=ExtResource("2_yh4v3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 0.8, -0.1)
+visible = false
+
+[node name="Dispensor4" parent="Dsipensors" instance=ExtResource("2_yh4v3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 0.8, -0.3)
+visible = false
+
+[node name="Belts" type="Node3D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Belt" type="StaticBody3D" parent="Belts" groups=["belt"]]
+collision_layer = 16
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_aajxa")
+script = ExtResource("1_m7peg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Belts/Belt"]
+mesh = SubResource("BoxMesh_ta3fr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Belts/Belt"]
+shape = SubResource("BoxShape3D_qxdf1")
+
+[node name="Belt2" type="StaticBody3D" parent="Belts" groups=["belt"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, -0.0034018, -1)
+collision_layer = 16
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_aajxa")
+script = ExtResource("1_m7peg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Belts/Belt2"]
+mesh = SubResource("BoxMesh_ta3fr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Belts/Belt2"]
+shape = SubResource("BoxShape3D_qxdf1")
+
+[node name="RedPads" type="Node3D" parent="."]
+
+[node name="PadDispensor" parent="RedPads" instance=ExtResource("5_pjjjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.1)
+type = "Upgrade"
+segment_name = "Dispensor"
+price = 1
+
+[node name="PadDispensor2" parent="RedPads" instance=ExtResource("5_pjjjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 1.1)
+type = "Upgrade"
+segment_name = "Dispensor"
+price = 1
+
+[node name="PadDispensor3" parent="RedPads" instance=ExtResource("5_pjjjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1.1)
+type = "Upgrade"
+segment_name = "Dispensor"
+price = 50
+
+[node name="PadRefiner" parent="RedPads" instance=ExtResource("5_pjjjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1.1)
+type = "Upgrade"
+segment_name = "Refiner"
+price = 1
+
+[node name="PadRefiner2" parent="RedPads" instance=ExtResource("5_pjjjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1.2)
+type = "Upgrade"
+segment_name = "Refiner"
+price = 10
+
+[node name="PadRefiner3" parent="RedPads" instance=ExtResource("5_pjjjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2, 0, -1.2)
+type = "Upgrade"
+segment_name = "Refiner"
+price = 200
+
+[node name="Refiners" type="Node3D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Refiner" type="Area3D" parent="Refiners" groups=["refiner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.463162, 0)
+visible = false
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Refiners/Refiner"]
+shape = SubResource("BoxShape3D_2jddt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Refiners/Refiner"]
+mesh = SubResource("BoxMesh_cnpmp")
+
+[node name="Refiner2" type="Area3D" parent="Refiners" groups=["refiner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.463162, 0)
+visible = false
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Refiners/Refiner2"]
+shape = SubResource("BoxShape3D_2jddt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Refiners/Refiner2"]
+mesh = SubResource("BoxMesh_cnpmp")
+
+[node name="Refiner3" type="Area3D" parent="Refiners" groups=["refiner"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0.463162, -1.6)
+visible = false
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Refiners/Refiner3"]
+shape = SubResource("BoxShape3D_2jddt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Refiners/Refiner3"]
+mesh = SubResource("BoxMesh_cnpmp")
+
+[connection signal="pressed" from="GreenPad" to="Dsipensors/Dispensor2" method="spawn_token"]
+[connection signal="pressed" from="RedPads/PadDispensor" to="Dsipensors/Dispensor" method="show"]
+[connection signal="pressed" from="RedPads/PadDispensor2" to="Dsipensors/Dispensor3" method="show"]
+[connection signal="pressed" from="RedPads/PadDispensor3" to="Dsipensors/Dispensor4" method="show"]
+[connection signal="pressed" from="RedPads/PadRefiner" to="Refiners/Refiner" method="show"]
+[connection signal="pressed" from="RedPads/PadRefiner2" to="Refiners/Refiner2" method="show"]
+[connection signal="pressed" from="RedPads/PadRefiner3" to="Refiners/Refiner3" method="show"]

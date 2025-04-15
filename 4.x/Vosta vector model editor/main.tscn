@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://8kcbw5tx07vq"]
+
+[ext_resource type="Script" uid="uid://c6xo4xkx7tfwd" path="res://main.gd" id="1_wlf2w"]
+[ext_resource type="PackedScene" uid="uid://b0qja5f7do6ef" path="res://entities/camera.tscn" id="2_ajtae"]
+[ext_resource type="Script" uid="uid://c8btilpvo3pkm" path="res://main_mesh.gd" id="3_3mg7i"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_08xea"]
+center_offset = Vector3(0.5, 0.5, 0)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_wlf2w")
+metadata/_edit_lock_ = true
+
+[node name="Camera" parent="." instance=ExtResource("2_ajtae")]
+
+[node name="EdgeMesh" type="MeshInstance2D" parent="."]
+editor_description = "Also holds point nodes"
+script = ExtResource("3_3mg7i")
+
+[node name="SelectBox" type="MeshInstance2D" parent="."]
+visible = false
+modulate = Color(0, 1, 1, 0.227451)
+mesh = SubResource("QuadMesh_08xea")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn5v11yb0jpo0"]
+
+[ext_resource type="Script" uid="uid://beue12n80ynb6" path="res://autoloads/ui/ui.gd" id="1_kldbr"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_kldbr")
+
+[node name="Mode" type="Label" parent="."]
+layout_mode = 0
+offset_right = 130.0
+offset_bottom = 66.0
+text = "Mode:"

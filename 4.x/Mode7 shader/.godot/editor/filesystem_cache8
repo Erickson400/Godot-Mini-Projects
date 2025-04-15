@@ -1,0 +1,16 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1701808209
+icon.svg::CompressedTexture2D::6042485977045832179::1700749355::1700749365::1::::<><>::
+main.tscn::PackedScene::2451937590485804381::1701808197::0::1::::<><>::res://sliders.gd<>res://entities/player/player.gd<>res://entities/player/display_sprite.gd<>res://entities/game_bus/mode7.gdshader
+sliders.gd::GDScript::-1::1701793892::0::1::::<>Node<>::
+::res://assets/::1701794260
+checker.jpg::Image::2741904523358300340::1662463886::1701793699::1::::<><>::
+mario_kart_map.png::Image::4248825283416281332::1700749496::1700754503::1::::<><>::
+zelda.jpg::Image::7318006509655530178::1701794248::1701794260::1::::<><>::
+::res://entities/::1700751138
+::res://entities/game_bus/::1701808200
+game_bus.gd::GDScript::-1::1701808198::0::1::::<>Node<>::
+mode7.gdshader::Shader::-1::1701808200::0::1::::<><>::
+::res://entities/player/::1701794064
+display_sprite.gd::GDScript::-1::1700759492::0::1::::<>Sprite2D<>::
+player.gd::GDScript::-1::1701794064::0::1::::<>Node2D<>::

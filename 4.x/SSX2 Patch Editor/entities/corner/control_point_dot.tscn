@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhircdsehufjo"]
+
+[ext_resource type="Script" uid="uid://01ys0usuwmf1" path="res://entities/corner/control_point_dot.gd" id="1_f5p5x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4n5eg"]
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+billboard_mode = 1
+
+[node name="ControlPointDot" type="MeshInstance3D"]
+editor_description = "Size must be set through the mesh because it passes through the billboard material"
+cast_shadow = 0
+script = ExtResource("1_f5p5x")
+material = SubResource("StandardMaterial3D_4n5eg")

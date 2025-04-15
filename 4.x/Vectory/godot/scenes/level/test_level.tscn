@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=4 uid="uid://b5eymxor3yd78"]
+
+[ext_resource type="PackedScene" uid="uid://kjf0r30pd3ke" path="res://scenes/entities/player/player.tscn" id="1_2fm0b"]
+[ext_resource type="PackedScene" uid="uid://hneatyt62r8n" path="res://scenes/entities/player/camera.tscn" id="3_817mu"]
+[ext_resource type="PackedScene" uid="uid://dj7mows2u5d0f" path="res://scenes/entities/hq/hq.tscn" id="5_3lep4"]
+[ext_resource type="PackedScene" uid="uid://bgi3jeqwnyhdq" path="res://scenes/entities/enemies/small_turret/small_turret.tscn" id="5_xgata"]
+[ext_resource type="PackedScene" uid="uid://j36rjdrf03m" path="res://scenes/entities/enemies/tank/tank.tscn" id="6_333xk"]
+[ext_resource type="Script" uid="uid://xgb6003chnh" path="res://scenes/entities/vector_mesh2d.gd" id="6_lyiyr"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_osux7"]
+light_mode = 1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_neufc"]
+_surfaces = [{
+"aabb": AABB(-173.107, -36.0613, 0, 212.417, 42.3697, 1e-05),
+"attribute_data": PackedByteArray("AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/w=="),
+"format": 34359742473,
+"index_count": 48,
+"index_data": PackedByteArray("BAACAAAAAQABAAMAAgAAAAUABAADAAYABgAHAAcACAAIAAkACQAKAAoACwALAAwADAANAA0ADgAOAA8ADwAQABAAEQARABIAEgATABMAFAAUABUAFQAWABYAFwAXABgA"),
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 25,
+"vertex_data": PackedByteArray("eWObQSk9jb8AAAAA/pl8Qb4ioEAAAAAA9sCuQT+t1D8AAAAAxilUwb4ioEAAAAAAns3MQbtQ8cAAAAAA6T0dQhCApMEAAAAAYZ6Awbk2McAAAAAARnnAweDLy8AAAAAArscTwuDLy8AAAAAA2UEfwgj7F8EAAAAA9joowpVJIb8AAAAAqew4wov5C0AAAAAAMwlKwsLbI8AAAAAAh5+LwsLbI8AAAAAAN2yQwsgcaMEAAAAALNCZwk2H4j8AAAAADlypwqFpS0AAAAAA2LjHwqFpS0AAAAAALL/WwofEnb0AAAAAfcUXw4fEnb0AAAAAvswZw47IHsAAAAAABcgdwwHfyUAAAAAARs8fw7VgwMAAAAAAT70iw2VwQMAAAAAARhstw7k+EMIAAAAA")
+}]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_2fm0b")]
+position = Vector2(-1193, -561)
+
+[node name="Camera" parent="." instance=ExtResource("3_817mu")]
+limit_left = -7000
+limit_top = -900
+limit_right = 1000
+limit_bottom = 400
+
+[node name="Terrain" type="StaticBody2D" parent="." groups=["bonk", "terrain"]]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain"]
+position = Vector2(295, 118)
+build_mode = 1
+polygon = PackedVector2Array(-7062, -986, 1741, -1032, 1269, -932, 727, -418, 580, -53, 480, -162, 338, 81, -823, 80, -940, -230, -1266, -372, -1778, -372, -1884, -498, -1984, -146, -2142, -40, -2314, -220, -3086, -226, -3186, -698, -3374, -52, -3680, 10, -4292, 10, -4594, -120, -6358, -126, -6448, -220, -6604, 132, -6688, -366, -6806, -242, -7016, -985, -7784, -920, -8033, 1509, 3640, 1557, 3488, -3095, -7405, -3238)
+
+[node name="Terrainesh" type="MeshInstance2D" parent="Terrain"]
+modulate = Color(0, 1, 0, 1)
+material = SubResource("CanvasItemMaterial_osux7")
+scale = Vector2(40, 40)
+mesh = SubResource("ArrayMesh_neufc")
+script = ExtResource("6_lyiyr")
+obj_path = "res://scenes/level/terrain.obj"
+metadata/_edit_lock_ = true
+
+[node name="SmallTurret" parent="." instance=ExtResource("5_xgata")]
+position = Vector2(-725, -148)
+rotation = 0.436905
+shoot_right = true
+
+[node name="SmallTurret2" parent="." instance=ExtResource("5_xgata")]
+position = Vector2(-919, -235)
+rotation = 0.460469
+
+[node name="Hq" parent="." instance=ExtResource("5_3lep4")]
+position = Vector2(309, 201)
+
+[node name="Tank" parent="." instance=ExtResource("6_333xk")]
+position = Vector2(-1221, -295)
+min_patrol = -195.0
+max_patrol = 195.0
+
+[connection signal="moved" from="Player" to="Camera" method="update_position"]

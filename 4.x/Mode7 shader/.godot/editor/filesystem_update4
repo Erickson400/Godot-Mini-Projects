@@ -1,0 +1,5 @@
+res://main.tscn
+res://entities/game_bus/mode7.gdshader
+res://entities/game_bus/game_bus.gd
+res://entities/player/player.gd
+res://sliders.gd

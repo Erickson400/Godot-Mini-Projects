@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://brtmsxtl82e03"]
+
+[ext_resource type="Script" uid="uid://rk4tccnledj7" path="res://autoloads/game_bus.gd" id="1_3sag2"]
+
+[node name="GameBus" type="Node"]
+script = ExtResource("1_3sag2")
+
+[node name="Month" type="Timer" parent="."]
+autostart = true
+
+[node name="SuppliesCountdown" type="Timer" parent="."]
+one_shot = true
+
+[node name="WorkersCountdown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Month" to="." method="_on_month_timeout"]
+[connection signal="timeout" from="SuppliesCountdown" to="." method="_on_supplies_countdown_timeout"]
+[connection signal="timeout" from="WorkersCountdown" to="." method="_on_workers_countdown_timeout"]

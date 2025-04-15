@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cul21hxdrn347"]
+
+[ext_resource type="Script" uid="uid://cuidl8gh1rbwp" path="res://autoloads/transformer/transformer.gd" id="1_3iipm"]
+[ext_resource type="Script" uid="uid://cvgukoa1dvgok" path="res://autoloads/transformer/patch.gd" id="2_hxvyl"]
+[ext_resource type="Script" uid="uid://dd4i3120n4jdm" path="res://autoloads/transformer/corner.gd" id="3_55c7s"]
+[ext_resource type="Script" uid="uid://bnb87k6txysha" path="res://autoloads/transformer/handle.gd" id="4_q7lal"]
+
+[node name="Transformer" type="Node"]
+script = ExtResource("1_3iipm")
+
+[node name="Patch" type="Node" parent="."]
+script = ExtResource("2_hxvyl")
+
+[node name="Corner" type="Node" parent="."]
+script = ExtResource("3_55c7s")
+
+[node name="Handle" type="Node" parent="."]
+script = ExtResource("4_q7lal")

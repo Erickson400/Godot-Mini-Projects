@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://qxm7ux5rutrj"]
+
+[ext_resource type="Script" uid="uid://boo3ycbhaufc1" path="res://autoloads/camera/main_camera.gd" id="1_5hr1p"]
+
+[node name="MainCamera" type="Node"]
+script = ExtResource("1_5hr1p")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+cull_mask = 1048573
+current = true

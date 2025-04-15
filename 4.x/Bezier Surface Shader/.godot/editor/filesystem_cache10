@@ -1,0 +1,9 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1744672963
+cp_generator.gd::GDScript/GDScript::9193266502337587635::1744241181::0::1::::<>Node<><>0<>1<><>::
+default_env.tres::Environment::5013149350726510352::1744329574::0::1::::<><><>0<>0<><>::
+icon.png::CompressedTexture2D/CompressedTexture2D::6776677135766871133::1677279936::1744240557::1::::<><><>0<>0<>3c27788f7fe5c235027da85a72d86823<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.s3tc.ctex::
+main.gd::GDScript/GDScript::781496806412870946::1744244435::0::1::::<>Node<><>0<>1<><>::
+main.tscn::PackedScene::8549886141406334167::1744329574::0::1::::<><><>0<>0<><>::uid://d38j0ydlyfij0::::res://cp_generator.gd<>uid://c3sw488siyiwr::::res://icon.png<>uid://letex10bw8jm::::res://main.gd<>uid://c8b5o6esgwvuq::::res://shader.tres
+shader.tres::Shader::7092985731322810460::1744329574::0::1::::<><><>0<>0<><>::
+visual_shader.tres::VisualShader/VisualShader::6891754018582853435::1744241657::0::1::::<><><>0<>0<><>::uid://c3sw488siyiwr::::res://icon.png

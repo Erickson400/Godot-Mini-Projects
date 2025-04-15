@@ -1,0 +1,9 @@
+[gd_resource type="Sky" load_steps=3 format=3 uid="uid://b431i2tw6kuh1"]
+
+[ext_resource type="Texture2D" uid="uid://bogqa7k2s2k7w" path="res://main/Sky_Garibaldi_Panorama.png" id="1_r3lqj"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ffwrv"]
+panorama = ExtResource("1_r3lqj")
+
+[resource]
+sky_material = SubResource("PanoramaSkyMaterial_ffwrv")

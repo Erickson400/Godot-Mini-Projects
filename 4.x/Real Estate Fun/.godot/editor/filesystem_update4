@@ -1,0 +1,8 @@
+res://autoloads/game_bus.tscn
+res://entities/plot/plot.tscn
+res://entities/town/town.tscn
+res://GUI/HUD.tscn
+res://main.tscn
+res://misc/default_env.tres
+res://entities/town/meshes/town_mesh_library.tres
+res://entities/plot/plot.gd

@@ -1,0 +1,13 @@
+res://entities/autoloads/game.tscn
+res://entities/machine/belt.tscn
+res://entities/machine/collector.tscn
+res://entities/machine/dispensor.tscn
+res://entities/machine/machine.tscn
+res://entities/machine/seller.tscn
+res://entities/machine/token.tscn
+res://entities/pads/green_pad.tscn
+res://entities/pads/red_pad.tscn
+res://entities/player/player.tscn
+res://main.tscn
+res://entities/autoloads/game.gd
+res://entities/machine/token.gd

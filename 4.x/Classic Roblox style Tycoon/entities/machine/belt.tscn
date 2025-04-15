@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw7u5f68ak6ek"]
+
+[ext_resource type="Script" uid="uid://kkxdrlkr647t" path="res://entities/machine/belt.gd" id="1_1i1lw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aajxa"]
+friction = 0.0
+rough = true
+bounce = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avfxa"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ta3fr"]
+material = SubResource("StandardMaterial3D_avfxa")
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qxdf1"]
+size = Vector3(1, 0.1, 1)
+
+[node name="Belt" type="StaticBody3D" groups=["belt"]]
+collision_layer = 16
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_aajxa")
+script = ExtResource("1_1i1lw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ta3fr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_qxdf1")

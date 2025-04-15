@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4g73awo7ggtb"]
+
+[ext_resource type="Script" uid="uid://shtuy4ceshiq" path="res://entities/machine/dispensor.gd" id="1_27afd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dw6fb"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="Dispensor" type="Node3D"]
+script = ExtResource("1_27afd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_dw6fb")
+
+[node name="SpawnRate" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpawnRate" to="." method="_on_spawn_rate_timeout"]

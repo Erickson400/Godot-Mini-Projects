@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn8n1hlq5yo1y"]
+
+[ext_resource type="Script" uid="uid://diavo4e7kgupc" path="res://scenes/entities/land_zone/land_zone.gd" id="1_2uhil"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwvms"]
+size = Vector2(50, 3)
+
+[node name="LandZone" type="Area2D"]
+script = ExtResource("1_2uhil")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_iwvms")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://coh6tknl8svsv"]
+
+[ext_resource type="Script" uid="uid://e08fl6ysec7a" path="res://autoloads/bubble_manager/bubble_manager.gd" id="1_toclx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s7xn"]
+no_depth_test = true
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[node name="BubbleManager" type="Node"]
+script = ExtResource("1_toclx")
+
+[node name="Lines" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_1s7xn")
+
+[node name="Bubbles" type="Node" parent="."]

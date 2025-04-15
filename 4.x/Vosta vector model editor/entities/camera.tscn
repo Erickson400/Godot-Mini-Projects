@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0qja5f7do6ef"]
+
+[ext_resource type="Script" uid="uid://bdcu4s63r0r2o" path="res://entities/camera.gd" id="1_et6ah"]
+
+[node name="Camera" type="Camera2D"]
+script = ExtResource("1_et6ah")
+
+[node name="Grid" type="MeshInstance2D" parent="."]
+
+[node name="Gizmo" type="MeshInstance2D" parent="."]

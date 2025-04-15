@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://b1sfscuiawequ"
+path="res://.godot/imported/mario_kart_map.png-d8964a3c0331b3e031cec9d249ec287d.image"
+
+[deps]
+
+source_file="res://assets/mario_kart_map.png"
+dest_files=["res://.godot/imported/mario_kart_map.png-d8964a3c0331b3e031cec9d249ec287d.image"]
+
+[params]
+

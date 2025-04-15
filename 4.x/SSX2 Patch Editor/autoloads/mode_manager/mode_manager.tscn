@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bobytythji1ik"]
+
+[ext_resource type="Script" uid="uid://74c111odmlp0" path="res://autoloads/mode_manager/mode_manager.gd" id="1_pg0d6"]
+[ext_resource type="Script" uid="uid://7awsd6nafmah" path="res://autoloads/mode_manager/color_viewport.gd" id="2_egacj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30lj0"]
+cull_mode = 2
+shading_mode = 0
+
+[node name="ModeManager" type="Node"]
+script = ExtResource("1_pg0d6")
+
+[node name="ColorViewport" type="SubViewport" parent="."]
+own_world_3d = true
+transparent_bg = true
+render_target_update_mode = 4
+script = ExtResource("2_egacj")
+color_material = SubResource("StandardMaterial3D_30lj0")
+
+[node name="Camera3D" type="Camera3D" parent="ColorViewport"]
+cull_mask = 1048574
+current = true

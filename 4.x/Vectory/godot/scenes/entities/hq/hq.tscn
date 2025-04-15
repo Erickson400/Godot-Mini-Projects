@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=4 uid="uid://dj7mows2u5d0f"]
+
+[ext_resource type="Script" uid="uid://xgb6003chnh" path="res://scenes/entities/vector_mesh2d.gd" id="1_s3w6k"]
+[ext_resource type="PackedScene" uid="uid://bn8n1hlq5yo1y" path="res://scenes/entities/land_zone/land_zone.tscn" id="2_gkc6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhit3"]
+size = Vector2(639, 278)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wt5py"]
+size = Vector2(223, 277)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btfno"]
+size = Vector2(62, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7f6w"]
+size = Vector2(288, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yeyfa"]
+size = Vector2(445, 39)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ehxtg"]
+light_mode = 1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lnn2d"]
+_surfaces = [{
+"aabb": AABB(-8.76614, -16.5476, 0, 17.5323, 16.5476, 1e-05),
+"attribute_data": PackedByteArray("AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/"),
+"format": 34359742473,
+"index_count": 204,
+"index_data": PackedByteArray("AAABAAIAAwADAAQABAAFAAYABwAHAAgACAAJAAoACwALAAwADAANAAoADQARAA4AEAAPABEAEAAPAA4AFAAVABMAFAASABUAEgATABkAFgAYABcAGQAYABcAFgAcAB0AGwAcABoAHQAaABsAIQAeACAAHwAhACAAHwAeACIAIwACACQAJAAlACUAJgAnACgAKAAIACkAKgAqACsAKwAsACkALAAwAC0ALwAuADAALwAuAC0AMwA0ADIAMwAxADQAMQAyADgANQA3ADYAOAA3ADYANQA7ADwAOgA7ADkAPAA5ADoAQAA9AD8APgBAAD8APgA9AEEAQgBDAEQARABFAEUARgBHAEgASABJAEcASgBLAEwATABNAE0ATgBLAE4AUgBPAFEAUABSAFEAUABPAEkASgBTAFQAQwBVAFUAVgBWAFcAWABZAFkAWgBYAFsAXABdAF0AXgBeAF8AXABfAGMAYABiAGEAYwBiAGEAYABaAFsAZQBnAGUAZgBnAGgAZABpAGoAbQBrAGoAbABrAG8AbgBxAHAA"),
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 114,
+"vertex_data": PackedByteArray("k2//QAAAAIAAAAAAk2//QGZmtsAAAAAAAAAAgDfe3MAAAAAA1TTuQDfe3MAAAAAAIEIMQWZmtsAAAAAAe/mdu2ZmtsAAAAAAc55lPwAAAIAAAAAAc55lPy2yt78AAAAAAAAAgC2yt78AAAAAAAAAgAAAAIAAAAAAQdfcPzdRh8AAAAAAQdfcPy8Ho8AAAAAAUYclPy8Ho8AAAAAAUYclPzdRh8AAAAAAUYclP26iDsAAAAAAUYclP14ORsAAAAAAQdfcP14ORsAAAAAAQdfcP26iDsAAAAAA5uneQG6iDsAAAAAA5uneQF4ORsAAAAAAAGW8QF4ORsAAAAAAAGW8QG6iDsAAAAAAAGW8QDdRh8AAAAAAAGW8QC8Ho8AAAAAA5uneQC8Ho8AAAAAA5uneQDdRh8AAAAAA5SqOQG6iDsAAAAAA5SqOQF4ORsAAAAAA/UtXQF4ORsAAAAAA/UtXQG6iDsAAAAAA/UtXQDdRh8AAAAAA/UtXQC8Ho8AAAAAA5SqOQC8Ho8AAAAAA5SqOQDdRh8AAAAAAk2//wAAAAIAAAAAAk2//wGZmtsAAAAAA1TTuwDfe3MAAAAAAIEIMwWZmtsAAAAAAe/mdO2ZmtsAAAAAAc55lvwAAAIAAAAAAc55lvy2yt78AAAAAQdfcvzdRh8AAAAAAQdfcvy8Ho8AAAAAAUYclvy8Ho8AAAAAAUYclvzdRh8AAAAAAUYclv26iDsAAAAAAUYclv14ORsAAAAAAQdfcv14ORsAAAAAAQdfcv26iDsAAAAAA5unewG6iDsAAAAAA5unewF4ORsAAAAAAAGW8wF4ORsAAAAAAAGW8wG6iDsAAAAAAAGW8wDdRh8AAAAAAAGW8wC8Ho8AAAAAA5unewC8Ho8AAAAAA5unewDdRh8AAAAAA5SqOwG6iDsAAAAAA5SqOwF4ORsAAAAAA/UtXwF4ORsAAAAAA/UtXwG6iDsAAAAAA/UtXwDdRh8AAAAAA/UtXwC8Ho8AAAAAA5SqOwC8Ho8AAAAAA5SqOwDdRh8AAAAAAK9HbQJJn3MAAAAAAK9HbQJYAS8EAAAAA3hCKQH48XsEAAAAAbJbKQH48XsEAAAAA2OX0QJYAS8EAAAAAXumJQJYAS8EAAAAArkbBQP/r5sAAAAAArkbBQPtQAcEAAAAAyMGeQPtQAcEAAAAAyMGeQP/r5sAAAAAArkbBQP91M8EAAAAArkbBQPtQQcEAAAAAyMGeQPtQQcEAAAAAyMGeQP91M8EAAAAAyMGeQP91E8EAAAAAyMGeQPtQIcEAAAAArkbBQPtQIcEAAAAArkbBQP91E8EAAAAAPkLhP5Jn3MAAAAAAPkLhP5YAS8EAAAAAnBYTQH48XsEAAAAAEd95P5YAS8EAAAAAXDiKQJYAS8EAAAAAF7YlQP/r5sAAAAAAF7YlQPtQAcEAAAAA5L9qQPtQAcEAAAAA5L9qQP/r5sAAAAAAF7YlQP91M8EAAAAAF7YlQPtQQcEAAAAA5L9qQPtQQcEAAAAA5L9qQP91M8EAAAAA5L9qQP91E8EAAAAA5L9qQPtQIcEAAAAAF7YlQPtQIcEAAAAAF7YlQP91E8EAAAAAv7eLQHZhhMEAAAAAlSm2vsu4AcEAAAAAlWZ3P8L53MAAAAAAIxOxwMu4AcEAAAAAj2LbwML53MAAAAAAv7eLQCEZXsEAAAAAcCe0QNyBgcEAAAAAcCe0QNAAdMEAAAAAv7eLQNAAdMEAAAAAv7eLQNyBgcEAAAAAjzmgQOyTgMEAAAAAjzmgQBozd8EAAAAASy6qQHktfMEAAAAA0ESWQHktfMEAAAAA")
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7ln48"]
+light_mode = 1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xrx0v"]
+_surfaces = [{
+"aabb": AABB(-5.548, -1.35516, 0, 11.096, 1.35517, 1e-05),
+"attribute_data": PackedByteArray("AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8="),
+"format": 34359742473,
+"index_count": 32,
+"index_data": PackedByteArray("BQAEAAMAAAACAAMAAQACAAcABQAFAAYAAgAIAAMACQAMAAQACwAAAAoACwABAAoADgAMAAwADQAKAA8ACwAQAA=="),
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 17,
+"vertex_data": PackedByteArray("AAAAgAAAAIAAAAAAAAAAgAAAgL8AAAAArz+CQAAAgL8AAAAANYmxQAAAAIAAAAAAAAAAgAAAAL8AAAAA4ur4PgAAAL8AAAAAM40eP3tndL0AAAAAXru0Poi5cL8AAAAArz+CQNp1rb8AAAAANYmxQGfXtb4AAAAArz+CwAAAgL8AAAAANYmxwAAAAIAAAAAA4ur4vgAAAL8AAAAAM40ev3tndL0AAAAAXru0voi5cL8AAAAArz+CwNp1rb8AAAAANYmxwGfXtb4AAAAA")
+}]
+
+[node name="Hq" type="StaticBody2D" groups=["bonk"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, -139)
+shape = SubResource("RectangleShape2D_bhit3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(172.5, -415.5)
+shape = SubResource("RectangleShape2D_wt5py")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(199, -611)
+shape = SubResource("RectangleShape2D_btfno")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(-108, -302.5)
+shape = SubResource("RectangleShape2D_o7f6w")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(-585, 0)
+shape = SubResource("RectangleShape2D_yeyfa")
+
+[node name="building" type="MeshInstance2D" parent="."]
+modulate = Color(0, 1, 0, 1)
+material = SubResource("CanvasItemMaterial_ehxtg")
+scale = Vector2(40, 40)
+mesh = SubResource("ArrayMesh_lnn2d")
+script = ExtResource("1_s3w6k")
+obj_path = "res://scenes/entities/hq/hq.obj"
+metadata/_edit_lock_ = true
+
+[node name="helipad" type="MeshInstance2D" parent="."]
+modulate = Color(0, 1, 0, 1)
+material = SubResource("CanvasItemMaterial_7ln48")
+position = Vector2(-583, 1)
+scale = Vector2(40, 40)
+mesh = SubResource("ArrayMesh_xrx0v")
+script = ExtResource("1_s3w6k")
+obj_path = "res://scenes/entities/hq/helipad.obj"
+
+[node name="LandZone" parent="." instance=ExtResource("2_gkc6k")]
+position = Vector2(-585, -19)
+scale = Vector2(2.13, 1)

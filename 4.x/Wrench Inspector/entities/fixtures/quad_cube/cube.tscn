@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://dcrian61pwyj6"]
+
+[ext_resource type="Script" uid="uid://dtdws3vx8nw77" path="res://scripts/part.gd" id="1_fg8fs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83dqd"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r41od"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y6mho"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmhtx"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ite7c"]
+size = Vector3(0.7, 0.7, 0.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5qddi"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8hwxe"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5su3"]
+albedo_color = Color(0.760784, 0.176471, 1, 1)
+
+[node name="Cube" type="Node3D"]
+
+[node name="Red" type="StaticBody3D" parent="."]
+script = ExtResource("1_fg8fs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Red"]
+material_override = SubResource("StandardMaterial3D_83dqd")
+mesh = SubResource("BoxMesh_r41od")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Red"]
+shape = SubResource("BoxShape3D_y6mho")
+
+[node name="Blue" type="StaticBody3D" parent="Red"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_fg8fs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Red/Blue"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_jmhtx")
+mesh = SubResource("BoxMesh_r41od")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Red/Blue"]
+shape = SubResource("BoxShape3D_ite7c")
+
+[node name="Green" type="StaticBody3D" parent="Red/Blue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+script = ExtResource("1_fg8fs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Red/Blue/Green"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_5qddi")
+mesh = SubResource("BoxMesh_r41od")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Red/Blue/Green"]
+shape = SubResource("BoxShape3D_8hwxe")
+
+[node name="Purple" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+script = ExtResource("1_fg8fs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Purple"]
+material_override = SubResource("StandardMaterial3D_e5su3")
+mesh = SubResource("BoxMesh_r41od")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Purple"]
+shape = SubResource("BoxShape3D_y6mho")

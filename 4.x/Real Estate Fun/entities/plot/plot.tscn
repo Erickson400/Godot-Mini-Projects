@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvln6a1m5u2yh"]
+
+[ext_resource type="Script" uid="uid://c3a6ip56w0p83" path="res://entities/plot/plot.gd" id="1_7e8br"]
+[ext_resource type="ArrayMesh" uid="uid://citabcuo13vj8" path="res://entities/plot/meshes/plot-0.obj" id="2_pan60"]
+[ext_resource type="ArrayMesh" uid="uid://c1blgjseumjjy" path="res://entities/plot/meshes/plot-1.obj" id="3_ksars"]
+[ext_resource type="ArrayMesh" uid="uid://c7q3ix4fqex4t" path="res://entities/plot/meshes/plot-2.obj" id="4_8oafc"]
+[ext_resource type="ArrayMesh" uid="uid://xhd58qgnke5i" path="res://entities/plot/meshes/plot-3.obj" id="5_pngcf"]
+[ext_resource type="ArrayMesh" uid="uid://c3nrx01o6gygc" path="res://entities/plot/meshes/plot-4.obj" id="6_lcqtw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8ibq3"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_1ot54"]
+sky_material = SubResource("ProceduralSkyMaterial_8ibq3")
+
+[sub_resource type="Environment" id="Environment_eirb0"]
+background_mode = 2
+sky = SubResource("Sky_1ot54")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Plot" type="Node3D"]
+script = ExtResource("1_7e8br")
+metadata/_edit_group_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eirb0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Meshes" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.8, 0, -4.8)
+metadata/_edit_group_ = true
+
+[node name="Trees" type="MeshInstance3D" parent="Meshes"]
+mesh = ExtResource("2_pan60")
+skeleton = NodePath("../..")
+
+[node name="Decking" type="MeshInstance3D" parent="Meshes"]
+mesh = ExtResource("3_ksars")
+skeleton = NodePath("../..")
+
+[node name="Fence" type="MeshInstance3D" parent="Meshes"]
+mesh = ExtResource("4_8oafc")
+skeleton = NodePath("../..")
+
+[node name="House" type="MeshInstance3D" parent="Meshes"]
+mesh = ExtResource("5_pngcf")
+skeleton = NodePath("../..")
+
+[node name="Ground" type="MeshInstance3D" parent="Meshes"]
+mesh = ExtResource("6_lcqtw")
+skeleton = NodePath("../..")
+
+[node name="RentTimer" type="Timer" parent="."]
+
+[node name="StateTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TestCamera" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 0.3, 6, 0.3)
+projection = 1
+size = 9.0
+
+[node name="MarkPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 6.4, -5)
+
+[node name="HatPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3.2, -5)
+
+[node name="BarPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.9, -5)
+
+[connection signal="timeout" from="RentTimer" to="." method="_on_rent_timeout"]
+[connection signal="timeout" from="StateTimer" to="." method="_on_state_timeout"]

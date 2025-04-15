@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=4 uid="uid://j36rjdrf03m"]
+
+[ext_resource type="Script" uid="uid://xgb6003chnh" path="res://scenes/entities/vector_mesh2d.gd" id="1_pcuqp"]
+[ext_resource type="Script" uid="uid://c1d8rsisbynav" path="res://scenes/entities/enemies/tank/tank.gd" id="1_q6ti6"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_63vgg"]
+light_mode = 1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_12qk8"]
+_surfaces = [{
+"aabb": AABB(-0.342062, -2.00073, 0, 0.684124, 2.00073, 1e-05),
+"attribute_data": PackedByteArray("AP8A/wD/AP8A/wD/AP8A/wD/AP8="),
+"format": 34359742473,
+"index_count": 8,
+"index_data": PackedByteArray("AQAAAAAAAgAEAAMAAwACAA=="),
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 5,
+"vertex_data": PackedByteArray("OpZ3PgcMAMAAAAAAwCKvPgAAAIAAAAAAAAAAgE7T9b8AAAAAOpZ3vgcMAMAAAAAAwCKvvgAAAIAAAAAA")
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_itemg"]
+light_mode = 1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2ei5u"]
+_surfaces = [{
+"aabb": AABB(-2.30989, -0.817825, 0, 4.61977, 1.81783, 1e-05),
+"attribute_data": PackedByteArray("AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/"),
+"format": 34359742473,
+"index_count": 80,
+"index_data": PackedByteArray("AwAAABQAAgABABEABAABAAUABgAHAAgABgAIAAUABwAJAAoACwAMAAoADAAJAAsADQAOAA8AEAAOABAADQAPABEAEgADABEAAAATABMAFAAXABUAJgACABYAJAAEABYAGAAZABoAGwAZABsAGAAaABwAHQAeAB8AHQAfABwAHgAgACEAIgAjACEAIwAgACIAJAASABcAJAAVACUAJQAmAA=="),
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 39,
+"vertex_data": PackedByteArray("NXkKQM3MzL4AAAAAz0jWPwAAgD8AAAAAAAAAgPtcUb8AAAAAMNUTQMQnzT4AAAAAAAAAgAAAgD8AAAAA/5TGPzGaaT8AAAAAXFXkP3YZLj8AAAAAuTSoPyVZLz8AAAAAH/XFP9Ww5z4AAAAAVJBzPzGaaT8AAAAAkIiXP3YZLj8AAAAA2c82PyVZLz8AAAAApFByP9Ww5z4AAAAAdO2zPjGaaT8AAAAAhXcVP3YZLj8AAAAA+7HpPSVZLz8AAAAAFm6xPtWw5z4AAAAAtan+P+ffnj4AAAAAAAAAgOffnj4AAAAAC7W+P83MzL4AAAAALj1WP/tXMr8AAAAANXkKwM3MzL4AAAAAz0jWvwAAgD8AAAAAMNUTwMQnzT4AAAAA/5TGvzGaaT8AAAAAXFXkv3YZLj8AAAAAuTSovyVZLz8AAAAAH/XFv9Ww5z4AAAAAVJBzvzGaaT8AAAAAkIiXv3YZLj8AAAAA2c82vyVZLz8AAAAApFByv9Ww5z4AAAAAdO2zvjGaaT8AAAAAhXcVv3YZLj8AAAAA+7HpvSVZLz8AAAAAFm6xvtWw5z4AAAAAtan+v+ffnj4AAAAAC7W+v83MzL4AAAAALj1Wv/tXMr8AAAAA")
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ooaje"]
+size = Vector2(182, 72)
+
+[node name="Tank" type="Area2D"]
+script = ExtResource("1_q6ti6")
+
+[node name="Arm" type="MeshInstance2D" parent="."]
+modulate = Color(0, 1, 0, 1)
+material = SubResource("CanvasItemMaterial_63vgg")
+scale = Vector2(40, 40)
+mesh = SubResource("ArrayMesh_12qk8")
+script = ExtResource("1_pcuqp")
+obj_path = "res://scenes/entities/enemies/tank/tank_arm.obj"
+
+[node name="Barrel" type="Marker2D" parent="Arm"]
+position = Vector2(0, -1.825)
+
+[node name="Body" type="MeshInstance2D" parent="."]
+modulate = Color(0, 1, 0, 1)
+material = SubResource("CanvasItemMaterial_itemg")
+scale = Vector2(40, 40)
+mesh = SubResource("ArrayMesh_2ei5u")
+script = ExtResource("1_pcuqp")
+obj_path = "res://scenes/entities/enemies/tank/tank_body.obj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 6)
+shape = SubResource("RectangleShape2D_ooaje")
+
+[node name="Shoot" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="ChangeAngle" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="InitOffset" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Shoot" to="." method="_on_shoot_timeout"]
+[connection signal="timeout" from="ChangeAngle" to="." method="_on_change_angle_timeout"]
+[connection signal="timeout" from="InitOffset" to="." method="_on_init_offset_timeout"]

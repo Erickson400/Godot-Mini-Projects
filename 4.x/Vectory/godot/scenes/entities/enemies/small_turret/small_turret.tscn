@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=4 uid="uid://bgi3jeqwnyhdq"]
+
+[ext_resource type="Script" uid="uid://b6xu8bv2bgox3" path="res://scenes/entities/enemies/small_turret/small_turret.gd" id="1_j7bxi"]
+[ext_resource type="Script" uid="uid://xgb6003chnh" path="res://scenes/entities/vector_mesh2d.gd" id="1_nlhvv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djgc1"]
+size = Vector2(37, 46)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1j4g2"]
+light_mode = 1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_m31r4"]
+_surfaces = [{
+"aabb": AABB(-0.1, -1.52206, 0, 0.2, 1.25592, 1e-05),
+"attribute_data": PackedByteArray("AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/"),
+"format": 34359742473,
+"index_count": 12,
+"index_data": PackedByteArray("AgABAAAAAwABAAMAAQAEAAMABQAEAAUA"),
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("zczMva9EiL4AAAAAj8J1PWOAvL8AAAAAzczMPctMib4AAAAAj8J1vWOAvL8AAAAACjG3PeXSwr8AAAAACjG3veXSwr8AAAAA")
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_opbrt"]
+light_mode = 1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ojr83"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, 0, 1, 0.5, 1e-05),
+"attribute_data": PackedByteArray("AP8A/wD/AP8A/wD/AP8A/wD/AP8="),
+"format": 34359742473,
+"index_count": 8,
+"index_data": PackedByteArray("AQAAAAMAAgACAAQAAAAEAA=="),
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 5,
+"vertex_data": PackedByteArray("l6imvoHLs74AAAAAAAAAvwAAAIAAAAAAl6imPoHLs74AAAAAAAAAPwAAAIAAAAAAAAAAgAAAAL8AAAAA")
+}]
+
+[node name="SmallTurret" type="Area2D"]
+script = ExtResource("1_j7bxi")
+shoot_right = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -23)
+shape = SubResource("RectangleShape2D_djgc1")
+
+[node name="Arm" type="MeshInstance2D" parent="."]
+modulate = Color(0, 1, 0, 1)
+material = SubResource("CanvasItemMaterial_1j4g2")
+scale = Vector2(30, 30)
+mesh = SubResource("ArrayMesh_m31r4")
+script = ExtResource("1_nlhvv")
+obj_path = "res://scenes/entities/enemies/small_turret/small_turret_arm.obj"
+
+[node name="Barrel" type="Marker2D" parent="Arm"]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(0, -1.4)
+gizmo_extents = 1.0
+
+[node name="Body" type="MeshInstance2D" parent="."]
+modulate = Color(0, 1, 0, 1)
+material = SubResource("CanvasItemMaterial_opbrt")
+scale = Vector2(30, 30)
+mesh = SubResource("ArrayMesh_ojr83")
+script = ExtResource("1_nlhvv")
+obj_path = "res://scenes/entities/enemies/small_turret/small_turret_body.obj"
+
+[node name="ChangeAngle" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Shoot" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="InitShootOffset" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="ChangeAngle" to="." method="_on_change_angle_timeout"]
+[connection signal="timeout" from="Shoot" to="." method="_on_shoot_timeout"]
+[connection signal="timeout" from="InitShootOffset" to="." method="_on_init_shoot_offset_timeout"]

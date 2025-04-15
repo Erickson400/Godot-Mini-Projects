@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://u3ps4c0pesbx"]
+
+[ext_resource type="Script" uid="uid://3p2a0mp26e4m" path="res://entities/bubble/bubble.gd" id="1_661bl"]
+[ext_resource type="Shader" uid="uid://befuqeb1wltn3" path="res://entities/bubble/ring.gdshader" id="2_lrlrg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8hsp5"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ubr6"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_lrlrg")
+shader_parameter/size = 0.02
+shader_parameter/color = Color(0, 1, 0, 1)
+shader_parameter/inner_ring = 0.32
+shader_parameter/outer_ring = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_1f7o0"]
+
+[node name="Bubble" type="Area3D"]
+script = ExtResource("1_661bl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_8hsp5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_3ubr6")
+mesh = SubResource("QuadMesh_1f7o0")

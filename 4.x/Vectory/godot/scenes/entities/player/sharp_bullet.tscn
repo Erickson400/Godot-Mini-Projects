@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bje71mkbb3y1k"]
+
+[ext_resource type="Script" uid="uid://xgb6003chnh" path="res://scenes/entities/vector_mesh2d.gd" id="1_bfwjq"]
+[ext_resource type="Script" uid="uid://ss4vm30khu1o" path="res://scenes/entities/player/sharp_bullet.gd" id="1_txcni"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_n8yup"]
+light_mode = 1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_upre1"]
+_surfaces = [{
+"aabb": AABB(-0.41602, -0.123459, 0, 0.41603, 0.246918, 1e-05),
+"attribute_data": PackedByteArray(0, 255, 0, 255, 0, 255, 0, 255, 0, 255, 0, 255, 0, 255, 0, 255),
+"format": 34359742473,
+"index_count": 8,
+"index_data": PackedByteArray(1, 0, 0, 0, 2, 0, 1, 0, 3, 0, 0, 0, 2, 0, 3, 0),
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 128, 0, 0, 0, 128, 0, 0, 0, 0, 147, 0, 213, 190, 18, 216, 252, 189, 0, 0, 0, 0, 123, 103, 172, 190, 0, 0, 0, 128, 0, 0, 0, 0, 147, 0, 213, 190, 18, 216, 252, 61, 0, 0, 0, 0)
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6vq7f"]
+radius = 8.0
+
+[node name="SharpBullet" type="Area2D"]
+script = ExtResource("1_txcni")
+
+[node name="VectorMesh2D" type="MeshInstance2D" parent="."]
+modulate = Color(0, 1, 0, 1)
+material = SubResource("CanvasItemMaterial_n8yup")
+scale = Vector2(20, 20)
+mesh = SubResource("ArrayMesh_upre1")
+script = ExtResource("1_bfwjq")
+obj_path = "res://scenes/entities/player/sharp_bullet.obj"
+
+[node name="Despawn" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_6vq7f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Despawn" to="." method="_on_despawn_timeout"]

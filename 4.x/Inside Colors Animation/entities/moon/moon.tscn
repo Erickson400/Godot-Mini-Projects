@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://wwpjkrxhwfpp"]
+
+[ext_resource type="Shader" uid="uid://1mxukb0vs04f" path="res://entities/moon/moon_distort.tres" id="1_3lbcp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bkjl0"]
+render_priority = 0
+shader = ExtResource("1_3lbcp")
+shader_parameter/FloatParameter = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_feao0"]
+material = SubResource("ShaderMaterial_bkjl0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ewgn"]
+cull_mode = 1
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_w4ygt"]
+material = SubResource("StandardMaterial3D_1ewgn")
+
+[node name="Moon" type="Node3D"]
+
+[node name="In" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.38975, 0, 0, 0, 1.38975, 0, 0, 0, 1.38975, 0, 0, 0)
+mesh = SubResource("SphereMesh_feao0")
+
+[node name="Out" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.533, 0, 0, 0, 1.533, 0, 0, 0, 1.533, 0, 0, 0)
+mesh = SubResource("SphereMesh_w4ygt")

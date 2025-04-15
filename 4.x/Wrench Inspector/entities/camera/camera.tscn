@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsbej8rmajdcr"]
+
+[ext_resource type="Script" uid="uid://c7tfe1qq1ard1" path="res://entities/camera/camera.gd" id="1_5fjq2"]
+
+[node name="Camera" type="Node3D"]
+script = ExtResource("1_5fjq2")
+
+[node name="HPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 2.98023e-08, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="VPivot" type="Node3D" parent="HPivot"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="HPivot/VPivot"]
+transform = Transform3D(1, -5.96046e-08, 1.78814e-07, 2.98023e-08, 0.999999, -3.8743e-07, -5.96046e-08, -2.98023e-08, 1, 1.19209e-07, 0, 5)
+fov = 40.0

@@ -1,0 +1,201 @@
+[gd_scene load_steps=16 format=4 uid="uid://kjf0r30pd3ke"]
+
+[ext_resource type="Script" uid="uid://bcoake8ath4s3" path="res://scenes/entities/player/player.gd" id="1_grls7"]
+[ext_resource type="Script" uid="uid://ba1xkr3fwguvu" path="res://scenes/entities/vector_mesh3d.gd" id="2_qej31"]
+[ext_resource type="Script" uid="uid://d0hr0xbcaoxv7" path="res://scenes/logic/state_machine.gd" id="3_ngn6d"]
+[ext_resource type="Script" uid="uid://n6485vthj66b" path="res://scenes/entities/player/states/fly.gd" id="3_soe4r"]
+[ext_resource type="Script" uid="uid://0fp03nj02shs" path="res://scenes/entities/player/states/land.gd" id="4_7k0vo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xwdb"]
+size = Vector2(137, 55.5)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ukbfx"]
+viewport_path = NodePath("HelicopterView")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l3g7r"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_epiwu"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1.51729, 2.00001, 2.11286, 5.86841),
+"attribute_data": PackedByteArray("AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/w=="),
+"format": 34359742473,
+"index_count": 106,
+"index_data": PackedByteArray("AwACAAEAAAAFAAQABwAGAAYACAAIAAkACQAKAAgACwAMAA0ADgAMAA8ADgAQAA8ADQAQAAYAEQAJABIABgASAAoAFQATABUACgAUABYABwAXABYAFAAYABgAGQAZABoAFwAaAAcAGwAKABwAHQAeACIAIQAgAB8AJAAjACYAJQAlACcAJwAoACgAKQAnAAsAKgANACsAKgAsACsALQAsAA0ALQAlABEAKAAuACUALgApADEALwAxACkAMAAyACYAFwAyADAAGAAmABsAKQAcAB0AMwA="),
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 52,
+"vertex_data": PackedByteArray("AACAPwAAAAAAAMC/AACAPwAAAAAAAMA/AACAPwAAAAAzMzO/yF8iPzMzsz4zMzO/AACAPwAAAACkcuM+yF8iPzMzsz6kcuM+zcxMPzMzsz5OYmi/zcxMPzMzsz7HSII/mpkZPxcsZT+xNsK/mpkZPyy36D9tyXK/mpkZPyS36D8t0CY/AAAAABcsZT+xNsK/H2gBPz2cij+YbbO/AAAAAD2cij/CbbO/H2gBP0+vij/P2nm/H2gBP+lI5D/P2nm/Zw+0O+lI5D/P2nm/AAAAADMzsz5OYmi/yAhoP6zHbT9OYmi/zcxMPzMzsz4t0CY/mpkZP4Uorz8xYJU/yAhoP6zHbT8t0CY/zcxMP8HjOz/Bca8/AAAAAH2xiT+D93xAAAAAAKhTxD/h7H1AAAAAAHZu/D9PPItAAAAAAPLvSz9RT4JAAAAAADMzsz7HSII/AAAAACS36D8t0CY/AAAAAAg5B0Br9Mo9XqAkuyy36D9r9Mo9AACAvwAAAAAAAMC/AACAvwAAAAAAAMA/AACAvwAAAAAzMzO/yF8ivzMzsz4zMzO/AACAvwAAAACkcuM+yF8ivzMzsz6kcuM+zcxMvzMzsz5OYmi/zcxMvzMzsz7HSII/mpkZvxcsZT+xNsK/mpkZvyy36D9tyXK/mpkZvyS36D8t0CY/H2gBvz2cij+YbbO/H2gBv0+vij/P2nm/H2gBv+lI5D/P2nm/Zw+0u+lI5D/P2nm/yAhov6zHbT9OYmi/zcxMvzMzsz4t0CY/mpkZv4Uorz8xYJU/yAhov6zHbT8t0CY/zcxMv8HjOz/Bca8/XqAkOyy36D9r9Mo9")
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifkog"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dg8jw"]
+_surfaces = [{
+"aabb": AABB(0, 0, -3.56572, 1e-05, 1e-05, 7.13145),
+"attribute_data": PackedByteArray("AP8A/wD/AP8="),
+"format": 34359742473,
+"index_count": 2,
+"index_data": PackedByteArray("AQAAAA=="),
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 2,
+"vertex_data": PackedByteArray("AAAAAAAAAAC5NGRAAAAAAAAAAAC5NGTA")
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d66gh"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ahxxg"]
+_surfaces = [{
+"aabb": AABB(0, -0.551559, 0, 1e-05, 1.10312, 1e-05),
+"attribute_data": PackedByteArray("AP8A/wD/AP8="),
+"format": 34359742473,
+"index_count": 2,
+"index_data": PackedByteArray("AQAAAA=="),
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 2,
+"vertex_data": PackedByteArray("AAAAAPgyDb8AAACAAAAAAPgyDT8AAAAA")
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4q6vr"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rje3u"]
+_surfaces = [{
+"aabb": AABB(-1.02853, 0.476454, -0.889424, 2.05706, 0.230536, 0.6984),
+"attribute_data": PackedByteArray("AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/"),
+"format": 34359742473,
+"index_count": 60,
+"index_data": PackedByteArray("AgAFAAAAAQABAAMABAAAAAUABgAHAAIAAwAEAAYABwADAAYABAAHAAEABQAAAAIACQAIAAsACgAJAAsADgARAAwADQANAA8AEAAMABEAEgATAA4ADwAQABIAEwAPABIAEAATAA0AEQAMAA4AFQAUABcAFgAVABcA"),
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("pKhXP8fx8z5rnkO+36aDP8fx8z5rnkO+pKhXP0z9ND9rnkO+36aDP8fx8z4iUlO/pKhXP8fx8z4iUlO/36aDP0z9ND9rnkO+36aDP0z9ND8iUlO/pKhXP0z9ND9EUlO/owFwP1M+KD9EUlO/owFwP1M+KD9LsWO/owFwP5flBz9EUlO/owFwP5flBz9LsWO/pKhXv8fx8z5rnkO+36aDv8fx8z5rnkO+pKhXv0z9ND9rnkO+36aDv8fx8z4iUlO/pKhXv8fx8z4iUlO/36aDv0z9ND9rnkO+36aDv0z9ND8iUlO/pKhXv0z9ND9EUlO/owFwv1M+KD9EUlO/owFwv1M+KD9LsWO/owFwv5flBz9EUlO/owFwv5flBz9LsWO/")
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_grls7")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -26.75)
+shape = SubResource("RectangleShape2D_4xwdb")
+debug_color = Color(0, 1, 0.670588, 0.137255)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -26.75)
+shape = SubResource("RectangleShape2D_4xwdb")
+debug_color = Color(0, 1, 0.670588, 0.0901961)
+
+[node name="HelicopterSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("ViewportTexture_ukbfx")
+metadata/_edit_lock_ = true
+
+[node name="BarrelPivot" type="Node2D" parent="."]
+
+[node name="RightBarrel" type="Marker2D" parent="BarrelPivot"]
+position = Vector2(23, -15)
+
+[node name="LeftBarrel" type="Marker2D" parent="BarrelPivot"]
+position = Vector2(-23, -15)
+
+[node name="MiddleBarrel" type="Marker2D" parent="BarrelPivot"]
+position = Vector2(0, -15)
+
+[node name="RightCameraFocus" type="Marker2D" parent="."]
+position = Vector2(90, -15)
+
+[node name="LeftCameraFocus" type="Marker2D" parent="."]
+position = Vector2(-90, -15)
+
+[node name="MiddleCameraFocus" type="Marker2D" parent="."]
+position = Vector2(0, -15)
+
+[node name="FireRate" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="HelicopterView" type="SubViewport" parent="."]
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(500, 500)
+
+[node name="Tilt" type="Node3D" parent="HelicopterView"]
+
+[node name="Turn" type="Node3D" parent="HelicopterView/Tilt"]
+
+[node name="Body" type="MeshInstance3D" parent="HelicopterView/Tilt/Turn"]
+material_override = SubResource("StandardMaterial3D_l3g7r")
+mesh = SubResource("ArrayMesh_epiwu")
+skeleton = NodePath("../../..")
+script = ExtResource("2_qej31")
+obj_path = "res://scenes/entities/player/heli_body.obj"
+
+[node name="FrontPropeller" type="MeshInstance3D" parent="HelicopterView/Tilt/Turn/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85008e-09, 2.11958, 0.110957)
+material_override = SubResource("StandardMaterial3D_ifkog")
+mesh = SubResource("ArrayMesh_dg8jw")
+skeleton = NodePath("../../../..")
+script = ExtResource("2_qej31")
+obj_path = "res://scenes/entities/player/heli_fprop.obj"
+
+[node name="BackPropeller" type="MeshInstance3D" parent="HelicopterView/Tilt/Turn/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75439e-07, 1.32004, 4.01358)
+material_override = SubResource("StandardMaterial3D_d66gh")
+mesh = SubResource("ArrayMesh_ahxxg")
+skeleton = NodePath("../../../..")
+script = ExtResource("2_qej31")
+obj_path = "res://scenes/entities/player/heli_bprop.obj"
+
+[node name="Guns" type="MeshInstance3D" parent="HelicopterView/Tilt/Turn/Body"]
+material_override = SubResource("StandardMaterial3D_4q6vr")
+mesh = SubResource("ArrayMesh_rje3u")
+skeleton = NodePath("../../../..")
+script = ExtResource("2_qej31")
+obj_path = "res://scenes/entities/player/heli_guns.obj"
+
+[node name="CamPivot" type="Node3D" parent="HelicopterView"]
+
+[node name="Camera3D" type="Camera3D" parent="HelicopterView/CamPivot"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 0, 0)
+projection = 1
+size = 20.0869
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_ngn6d")
+
+[node name="Fly" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "fire_rate_timer", "land_state", "front_propeller", "back_propeller", "tilt_pivot", "turn_pivot", "right_barrel", "middle_barrel", "left_barrel", "barrel_pivot")]
+script = ExtResource("3_soe4r")
+character = NodePath("../..")
+fire_rate_timer = NodePath("../../FireRate")
+land_state = NodePath("../Land")
+front_propeller = NodePath("../../HelicopterView/Tilt/Turn/Body/FrontPropeller")
+back_propeller = NodePath("../../HelicopterView/Tilt/Turn/Body/BackPropeller")
+tilt_pivot = NodePath("../../HelicopterView/Tilt")
+turn_pivot = NodePath("../../HelicopterView/Tilt/Turn")
+right_barrel = NodePath("../../BarrelPivot/RightBarrel")
+middle_barrel = NodePath("../../BarrelPivot/MiddleBarrel")
+left_barrel = NodePath("../../BarrelPivot/LeftBarrel")
+barrel_pivot = NodePath("../../BarrelPivot")
+
+[node name="Land" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "fly_state", "front_propeller", "tilt_pivot")]
+script = ExtResource("4_7k0vo")
+character = NodePath("../..")
+fly_state = NodePath("../Fly")
+front_propeller = NodePath("../../HelicopterView/Tilt/Turn/Body/FrontPropeller")
+tilt_pivot = NodePath("../../HelicopterView/Tilt")
+
+[connection signal="timeout" from="FireRate" to="StateMachine/Fly" method="_on_fire_rate_timeout"]
