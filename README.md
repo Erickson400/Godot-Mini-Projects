@@ -2,7 +2,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;Here are my Godot projects and tech demos. I’ve bundled them into one repo because I wasn’t interested in publishing them individually
 
-&nbsp;&nbsp;&nbsp;&nbsp;Many of them were personal experiments to test out Godot features or try new ideas. Sometimes I reuse parts of these projects in larger ones, or merge them to create bigger things. Some examples:
+&nbsp;&nbsp;&nbsp;&nbsp;Many of them were personal experiments to test out Godot features and my skills. Mainly tech demos showing off a specific feature. Sometimes I reuse parts of these projects in larger ones. Some examples:
 - Car System
 - Fractals
 - Raytrace
@@ -12,7 +12,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;Some were more ambitious projects that never made it to completion, usually because I overestimated my skills or underestimated the commitment needed. I learned the hard way. Some of these are:
 - Real Estate Fun
 - Vectory
-- Wendy (**check out the idea doc file in the folder - you might find it interesting**)
+- Wendy (*check out the idea doc file in the folder - you might find it interesting*)
 - Vosta vector model editor
 \
 \
