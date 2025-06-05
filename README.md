@@ -19,7 +19,7 @@ Some were more ambitious projects that never made it to completion, usually beca
 Fortunately, a few projects did reach a somewhat finished state. I'm greatful to have them here and I encourage you to give them a try. They’re probably not big enough to justify standalone repos. In the probable future, one of them is gonna peak my interest again, and I'll build on top of them to make something better. Some of these are:
 - Inside Colors Animation (*my favorite*)
 - SSX2 Patch Editor (*just a prototype for a bigger project, but well executed till the end*)
--Math Training
+- Math Training
 - CVG Strikes Back (*A follow up to my [sure-shot](https://github.com/Erickson400/sure-shot-gd) port to godot by MDickie*)
 
 
